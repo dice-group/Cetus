@@ -11,6 +11,7 @@ import org.aksw.simba.cetus.preprocessing.BracketsRemovingSupplierDecorator;
 import org.aksw.simba.cetus.preprocessing.CetusSPARQLDocumentSupplier;
 import org.aksw.simba.cetus.preprocessing.EntityAndTypeIdentificationInText;
 import org.aksw.simba.cetus.preprocessing.EntityWasFoundDocumentFilter;
+import org.aksw.simba.cetus.preprocessing.QuotesRemovingSupplierDecorator;
 import org.aksw.simba.cetus.preprocessing.SimplePatternExtractor;
 import org.aksw.simba.topicmodeling.lang.Language;
 import org.aksw.simba.topicmodeling.lang.SentenceSplitterFactory;
@@ -52,6 +53,8 @@ public class PatternExtractor implements DocumentConsumer {
         }
 
         DocumentSupplier supplier = new CetusSPARQLDocumentSupplier(DataExtractor.SPARQL_ENDPOINT);
+        // remove quotes
+        supplier = new QuotesRemovingSupplierDecorator(supplier);
         // remove brackets
         supplier = new BracketsRemovingSupplierDecorator(supplier);
         // split sentences
