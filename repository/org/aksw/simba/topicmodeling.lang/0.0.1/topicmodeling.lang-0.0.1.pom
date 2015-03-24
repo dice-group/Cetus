@@ -42,6 +42,7 @@
 					<groupId>junit</groupId>
 				</exclusion>
 			</exclusions>
+			<optional>true</optional>
 		</dependency>
 		<!-- Open NLP -->
 		<dependency>
@@ -54,16 +55,15 @@
 			<groupId>edu.stanford</groupId>
 			<artifactId>stanford-postagger</artifactId>
 			<version>3.1.3</version>
+			<optional>true</optional>
 		</dependency>
 		<!-- TreeTagger -->
 		<dependency>
 			<groupId>org.annolab.tt4j</groupId>
 			<artifactId>org.annolab.tt4j</artifactId>
 			<version>1.1.1</version>
+			<optional>true</optional>
 		</dependency>
-		<!-- Tokenizing -->
-		<!-- <dependency> <groupId>com.unister.semweb</groupId> <artifactId>tokenizing</artifactId> 
-			<version>0.4.2</version> </dependency> -->
 		<!-- Apache HTTP Client -->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
@@ -75,12 +75,14 @@
 			<groupId>net.sourceforge.htmlcleaner</groupId>
 			<artifactId>htmlcleaner</artifactId>
 			<version>2.2</version>
+			<optional>true</optional>
 		</dependency>
 		<!-- Apache Lucene containing Porter Stemmer -->
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
 			<artifactId>lucene-analyzers-common</artifactId>
 			<version>${lucene.version}</version>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 </project>
