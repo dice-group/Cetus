@@ -1,2 +1,3 @@
 # Cetus
-CETUS - Class induction for pre-annotated entities
+CETUS - Cetus performs Entity Typing Using patternS
+
