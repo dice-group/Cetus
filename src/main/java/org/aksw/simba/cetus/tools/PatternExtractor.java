@@ -16,7 +16,7 @@ import org.aksw.simba.cetus.preprocessing.SimplePatternExtractor;
 import org.aksw.simba.topicmodeling.lang.Language;
 import org.aksw.simba.topicmodeling.lang.SentenceSplitterFactory;
 import org.aksw.simba.topicmodeling.lang.Term;
-import org.aksw.simba.topicmodeling.lang.postagging.PosTaggerFactory;
+import org.aksw.simba.topicmodeling.lang.postagging.StanfordTaggerWrapper;
 import org.aksw.simba.topicmodeling.preprocessing.docconsumer.DocumentConsumer;
 import org.aksw.simba.topicmodeling.preprocessing.docsupplier.DocumentSupplier;
 import org.aksw.simba.topicmodeling.preprocessing.docsupplier.decorator.DocumentFilteringSupplierDecorator;
@@ -68,7 +68,9 @@ public class PatternExtractor implements DocumentConsumer {
         supplier = new DocumentFilteringSupplierDecorator(supplier, new EntityWasFoundDocumentFilter(
                 DescribedEntityType.class));
         // POS tagging
-        supplier = new NerPropagatingSupplierDecorator(supplier, PosTaggerFactory.getPosTaggingStep(Language.ENG));
+        // supplier = new NerPropagatingSupplierDecorator(supplier,
+        // PosTaggerFactory.getPosTaggingStep(Language.ENG));
+        supplier = new NerPropagatingSupplierDecorator(supplier, StanfordTaggerWrapper.create());
         // Pattern creation
         supplier = new SimplePatternExtractor(supplier);
 

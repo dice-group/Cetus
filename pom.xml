@@ -4,13 +4,13 @@
 	<groupId>org.aksw.simba</groupId>
 	<artifactId>cetus</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>Cetus</name>
 	<description>Cetus performs Entity Typing Using patternS</description>
 
 	<properties>
 		<java.version>1.7</java.version>
-		<slf4j.version>1.7.5</slf4j.version>
+		<slf4j.version>1.7.10</slf4j.version>
 		<junit.version>4.11</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.2.10.RELEASE</spring.version>
@@ -52,39 +52,70 @@
 		<dependency>
 			<groupId>org.aksw.simba</groupId>
 			<artifactId>topicmodeling.preprocessing</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<!-- Morphadorner -->
-		<dependency>
-			<groupId>edu.northwestern.at</groupId>
-			<artifactId>morphadorner</artifactId>
-			<version>1.0.0</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>isorelax-jaxp-bridge</artifactId>
-					<groupId>org.iso_relax.verifier.jaxp.validation</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>log4j-over-slf4j</artifactId>
-					<groupId>org.slf4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>junit</artifactId>
-					<groupId>junit</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+		<!-- Morphadorner <dependency> <groupId>edu.northwestern.at</groupId> <artifactId>morphadorner</artifactId> 
+			<version>1.0.0</version> <exclusions> <exclusion> <artifactId>isorelax-jaxp-bridge</artifactId> 
+			<groupId>org.iso_relax.verifier.jaxp.validation</groupId> </exclusion> <exclusion> 
+			<artifactId>log4j-over-slf4j</artifactId> <groupId>org.slf4j</groupId> </exclusion> 
+			<exclusion> <artifactId>junit</artifactId> <groupId>junit</groupId> </exclusion> 
+			</exclusions> </dependency> -->
 		<!-- Topicmodeling Commons -->
 		<dependency>
 			<groupId>org.aksw.simba</groupId>
 			<artifactId>topicmodeling.commons</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- ANTLR -->
 		<dependency>
 			<groupId>org.antlr</groupId>
 			<artifactId>antlr4</artifactId>
 			<version>4.5</version>
+		</dependency>
+		<!-- GERBIL nif transfer lib -->
+		<dependency>
+			<groupId>org.aksw</groupId>
+			<artifactId>gerbil.nif.transfer</artifactId>
+			<version>1.1.0-SNAPSHOT</version>
+		</dependency>
+		<!-- Stanford NLP -->
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<!-- <version>3.5.1</version> -->
+			<version>3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<!-- <version>3.5.1</version> -->
+			<version>3.4</version>
+			<classifier>models</classifier>
+		</dependency>
+		<!-- we have to prevent stanford from loading an older version -->
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>1.4.01</version>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- SPRING -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<!-- slf4j: Logging API -->

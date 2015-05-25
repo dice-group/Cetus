@@ -46,7 +46,7 @@ public class PatternMatchingTest extends CetusPatternsBaseVisitor<String> {
             String text;
             List<String> types;
             while (line != null) {
-                text = line[0].replaceAll("\\$TYPE\\$", "type_type_n");
+                text = line[0].replaceAll("\\$TYPE\\$", "type_type_NN");
                 types = getTypes(text);
                 if (types != null) {
                     ++matchedPatterns;

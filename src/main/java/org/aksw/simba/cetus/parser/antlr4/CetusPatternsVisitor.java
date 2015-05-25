@@ -24,12 +24,6 @@ public interface CetusPatternsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitType_after_entity_pattern(CetusPatternsParser.Type_after_entity_patternContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CetusPatternsParser#direct_following_type_pattern}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDirect_following_type_pattern(CetusPatternsParser.Direct_following_type_patternContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link CetusPatternsParser#is_a_pattern}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -60,9 +54,9 @@ public interface CetusPatternsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitType(CetusPatternsParser.TypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CetusPatternsParser#nr_or_crd}.
+	 * Visit a parse tree produced by {@link CetusPatternsParser#nr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNr_or_crd(CetusPatternsParser.Nr_or_crdContext ctx);
+	T visitNr(CetusPatternsParser.NrContext ctx);
 }

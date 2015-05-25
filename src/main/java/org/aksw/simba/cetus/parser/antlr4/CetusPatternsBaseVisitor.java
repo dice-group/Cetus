@@ -32,13 +32,6 @@ public class CetusPatternsBaseVisitor<T> extends AbstractParseTreeVisitor<T> imp
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDirect_following_type_pattern(CetusPatternsParser.Direct_following_type_patternContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitIs_a_pattern(CetusPatternsParser.Is_a_patternContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -74,5 +67,5 @@ public class CetusPatternsBaseVisitor<T> extends AbstractParseTreeVisitor<T> imp
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNr_or_crd(CetusPatternsParser.Nr_or_crdContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNr(CetusPatternsParser.NrContext ctx) { return visitChildren(ctx); }
 }

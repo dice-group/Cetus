@@ -11,6 +11,8 @@ import org.antlr.v4.runtime.CommonTokenStream;
 
 public class TypeExtractor {
 
+    public static final String ENTITY_MARKING = "$ENTITY$";
+
     public List<String> extractTypeStrings(String sentence) {
         ANTLRInputStream is = new ANTLRInputStream(sentence);
         CetusPatternsLexer lexer = new CetusPatternsLexer(is);
