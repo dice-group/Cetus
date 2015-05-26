@@ -2,11 +2,14 @@ package org.aksw.simba.cetus.yago;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
@@ -22,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -58,13 +62,27 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 	    return null;
 	}
 
+	LOGGER.info("Loading label model...");
+	// load YAGO labels
+	Model labelModel = loadLabelModel();
+	if (labelModel == null) {
+	    return null;
+	}
+
+	LOGGER.info("Creating label index...");
+	Map<String, Resource[]> labelIndex = new HashMap<String, Resource[]>();
+	addLabelsToIndex(labelIndex, classModel);
+	addLabelsToIndex(labelIndex, labelModel);
+	labelModel = null;
+
 	LOGGER.info("Loading DOLCE classes...");
 	// load DOLCE ontology
 	Model dolceClassModel = ModelFactory.createDefaultModel();
 	if (!loadDolceClasses(dolceClassModel)) {
 	    return null;
 	}
-	return new YagoBasedTypeSearcher(classModel, dolceClassModel);
+	return new YagoBasedTypeSearcher(classModel, dolceClassModel,
+		labelIndex);
     }
 
     public static PrefixMapping getPrefixMapping() {
@@ -80,8 +98,8 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 	FileInputStream is = null;
 	try {
 	    // FIXME put the path into properties file
-	    is = new FileInputStream("cetus_data/classes.ttl");
-	    classModel.read(is, null, "TTL");
+	    is = new FileInputStream("cetus_data/classes.xml");
+	    classModel.read(is, null, "RDF/XML");
 	    return true;
 	} catch (IOException e) {
 	    LOGGER.error(
@@ -91,6 +109,46 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 	    IOUtils.closeQuietly(is);
 	}
 	return false;
+    }
+
+    protected static Model loadLabelModel() {
+	Model labelModel = ModelFactory.createDefaultModel();
+	FileInputStream is = null;
+	try {
+	    // FIXME put the path into properties file
+	    is = new FileInputStream("cetus_data/yago_class_labels.ttl");
+	    labelModel.read(is, null, "TTL");
+	    return labelModel;
+	} catch (IOException e) {
+	    LOGGER.error(
+		    "Couldn't load model containing YAGO labels. Returning null.",
+		    e);
+	} finally {
+	    IOUtils.closeQuietly(is);
+	}
+	return null;
+    }
+
+    protected static void addLabelsToIndex(Map<String, Resource[]> labelIndex,
+	    Model model) {
+	StmtIterator stmtIterator = model.listStatements(null, RDFS.label,
+		(RDFNode) null);
+	Statement statement;
+	String label;
+	Resource resources[];
+	while (stmtIterator.hasNext()) {
+	    statement = stmtIterator.next();
+	    label = statement.getObject().asLiteral().getString();
+	    if (labelIndex.containsKey(label)) {
+		resources = labelIndex.get(label);
+		resources = Arrays.copyOf(resources, resources.length + 1);
+		resources[resources.length - 1] = statement.getSubject();
+		labelIndex.put(label, resources);
+	    } else {
+		labelIndex
+			.put(label, new Resource[] { statement.getSubject() });
+	    }
+	}
     }
 
     protected static boolean loadDolceClasses(Model classModel) {
@@ -172,15 +230,18 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 
     private Model classesModel;
     private Model dolceClassModel;
+    private Map<String, Resource[]> labelIndex;
     /**
      * A list of DOLCE classes to which we can not traverse starting inside the
      * YAGO hierarchy (and going only up or to the side).
      */
     private Set<Resource> unlinkedDolceClasses;
 
-    protected YagoBasedTypeSearcher(Model classesModel, Model dolceClassModel) {
+    protected YagoBasedTypeSearcher(Model classesModel, Model dolceClassModel,
+	    Map<String, Resource[]> labelIndex) {
 	this.classesModel = classesModel;
 	this.dolceClassModel = dolceClassModel;
+	this.labelIndex = labelIndex;
 	LOGGER.info("Searching unlinked DOLCE classes...");
 	this.unlinkedDolceClasses = findUnlinkedDolceClasses(classesModel,
 		dolceClassModel);
@@ -216,17 +277,27 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
     }
 
     protected void addMatchingClasses(String label, Set<Resource> types) {
-	ResIterator resIterator = classesModel.listSubjectsWithProperty(
-		RDFS.label, label);
-	int count = 0;
-	while (resIterator.hasNext()) {
-	    types.add(resIterator.next());
-	    ++count;
-	}
-	if (LOGGER.isInfoEnabled() && (count == 0)) {
+	Resource resources[];
+	if (labelIndex.containsKey(label)) {
+	    resources = labelIndex.get(label);
+	    for (int i = 0; i < resources.length; i++) {
+		types.add(resources[i]);
+	    }
+	} else {
 	    LOGGER.info("Couldn't find a matching YAGO class for the label \""
 		    + label + "\".");
 	}
+	// ResIterator resIterator = classesModel.listSubjectsWithProperty(
+	// RDFS.label, label);
+	// int count = 0;
+	// while (resIterator.hasNext()) {
+	// types.add(resIterator.next());
+	// ++count;
+	// }
+	// if (LOGGER.isInfoEnabled() && (count == 0)) {
+	// LOGGER.info("Couldn't find a matching YAGO class for the label \""
+	// + label + "\".");
+	// }
     }
 
     protected void searchDolceSuperClasses(Set<Resource> types) {

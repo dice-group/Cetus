@@ -49,6 +49,25 @@ public class CetusSurfaceFormExtractorTest {
 	testConfigs
 		.add(new Object[] {
 			new DocumentImpl(
+				"Avex Group Holdings Inc., listed in the Tokyo Stock Exchange as 7860 and abbreviated as AGHD, is the holding company for a group of entertainment-related subsidiaries based in Japan.",
+				Arrays.asList((Marking) new NamedEntity(0, 24,
+					"http://dbpedia.org/resource/Avex"))),
+			new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
+				new ExtendedTypedNamedEntity(101, 15,
+					CetusSurfaceFormExtractor.BASE_URI
+						+ "holdingCompany",
+					new HashSet<String>(Arrays
+						.asList(RDFS.Class.getURI())),
+					"holding company"),
+				new ExtendedTypedNamedEntity(109, 7,
+					CetusSurfaceFormExtractor.BASE_URI
+						+ "company",
+					new HashSet<String>(Arrays
+						.asList(RDFS.Class.getURI())),
+					"company"))) });
+	testConfigs
+		.add(new Object[] {
+			new DocumentImpl(
 				"Associação Desportiva Sanjoanense is a football club based in S‹o Jo‹o da Madeira.",
 				Arrays.asList((Marking) new NamedEntity(0, 33,
 					"http://dbpedia.org/resource/FB"))),

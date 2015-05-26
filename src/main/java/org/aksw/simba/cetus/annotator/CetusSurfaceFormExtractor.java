@@ -139,7 +139,7 @@ public class CetusSurfaceFormExtractor {
         for (CoreLabel token : tokens) {
             tokenPositions[id][ORIG_TEXT_START] = token.get(CharacterOffsetBeginAnnotation.class);
             tokenPositions[id][ORIG_TEXT_END] = token.get(CharacterOffsetEndAnnotation.class);
-            if ((tokenPositions[id][ORIG_TEXT_END] < neStartPos) || (tokenPositions[id][ORIG_TEXT_START] > neEndPos)) {
+            if ((tokenPositions[id][ORIG_TEXT_END] <= neStartPos) || (tokenPositions[id][ORIG_TEXT_START] >= neEndPos)) {
                 if (parseableTextBuilder.length() > 0) {
                     parseableTextBuilder.append(' ');
                 }

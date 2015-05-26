@@ -20,9 +20,9 @@ public class SimpleCetusAnnotatorTestClass {
 		YagoBasedTypeSearcher.create());
 	Document document = annotator
 		.performTypeExtraction(new DocumentImpl(
-			"Brian Banner is a fictional villain from the Marvel Comics Universe created by Bill Mantlo and Mike Mignola and first appearing in print in late 1985.",
-			Arrays.asList((Marking) new NamedEntity(0, 12,
-				"http://dbpedia.org/resource/Brian_Banner"))));
+			"Avex Group Holdings Inc., listed in the Tokyo Stock Exchange as 7860 and abbreviated as AGHD, is the holding company for a group of entertainment-related subsidiaries based in Japan.",
+			Arrays.asList((Marking) new NamedEntity(0, 24,
+				"http://dbpedia.org/resource/AVEX"))));
 	System.out.println(document);
     }
 }

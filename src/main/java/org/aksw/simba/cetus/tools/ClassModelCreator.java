@@ -82,8 +82,8 @@ public class ClassModelCreator {
 
         FileOutputStream fout = null;
         try {
-            fout = new FileOutputStream("cetus_data/classes.ttl");
-            classModel.write(fout, "TTL");
+            fout = new FileOutputStream("cetus_data/classes.xml");
+            classModel.write(fout, "RDF/XML");
         } catch (Exception e) {
             LOGGER.error("Error while trying to write the class model to file.", e);
         } finally {
