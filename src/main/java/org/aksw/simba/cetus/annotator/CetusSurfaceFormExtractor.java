@@ -173,6 +173,9 @@ public class CetusSurfaceFormExtractor {
         String parseableText = parseableTextBuilder.toString();
         List<String> types = extractor.extractTypeStrings(parseableText);
         if (types != null) {
+            if(LOGGER.isInfoEnabled()) {
+                LOGGER.info("Found types " + Arrays.toString(types.toArray()) + " inside the sentence \"" + parseableText + "\".");
+            }
             generateNEsForTypes(document.get(TokensAnnotation.class), tokenPositions, parseableText, types, results);
         } else {
             LOGGER.warn("Extractor was not able to process the text \"" + parseableText + "\".");

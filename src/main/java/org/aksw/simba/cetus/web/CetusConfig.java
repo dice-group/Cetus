@@ -24,6 +24,7 @@
 package org.aksw.simba.cetus.web;
 
 import org.aksw.simba.cetus.annotator.CetusSurfaceFormExtractor;
+import org.aksw.simba.cetus.fox.FoxBasedTypeSearcher;
 import org.aksw.simba.cetus.yago.YagoBasedTypeSearcher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -42,5 +43,10 @@ public class CetusConfig {
     @Bean
     public static YagoBasedTypeSearcher createYagoBasedSearcher() {
         return YagoBasedTypeSearcher.create();
+    }
+
+    @Bean
+    public static FoxBasedTypeSearcher createFoxBasedTypeSearcher() {
+        return new FoxBasedTypeSearcher();
     }
 }

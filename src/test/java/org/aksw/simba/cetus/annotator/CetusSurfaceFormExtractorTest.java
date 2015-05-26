@@ -39,6 +39,14 @@ public class CetusSurfaceFormExtractorTest {
                                         "fictional villain"),
                                 new ExtendedTypedNamedEntity(28, 7, CetusSurfaceFormExtractor.BASE_URI + "villain",
                                         new HashSet<String>(Arrays.asList(RDFS.Class.getURI())), "villain"))) });
+        testConfigs.add(new Object[] {
+                new DocumentImpl("Associação Desportiva Sanjoanense is a football club based in S‹o Jo‹o da Madeira.",
+                        Arrays.asList((Marking) new NamedEntity(0, 33, "http://dbpedia.org/resource/FB"))),
+                new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
+                        new ExtendedTypedNamedEntity(39, 13, CetusSurfaceFormExtractor.BASE_URI + "footballClub",
+                                new HashSet<String>(Arrays.asList(RDFS.Class.getURI())), "football club"),
+                        new ExtendedTypedNamedEntity(48, 4, CetusSurfaceFormExtractor.BASE_URI + "club",
+                                new HashSet<String>(Arrays.asList(RDFS.Class.getURI())), "club"))) });
         return testConfigs;
     }
 

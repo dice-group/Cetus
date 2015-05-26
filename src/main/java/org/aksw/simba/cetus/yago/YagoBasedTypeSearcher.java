@@ -175,7 +175,8 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
     }
 
     @Override
-    public TypedNamedEntity getAllTypes(NamedEntity ne, List<ExtendedTypedNamedEntity> surfaceForms) {
+    public TypedNamedEntity getAllTypes(org.aksw.gerbil.transfer.nif.Document document, NamedEntity ne,
+            List<ExtendedTypedNamedEntity> surfaceForms) {
         Set<Resource> types = new HashSet<Resource>();
         for (ExtendedTypedNamedEntity extTypNE : surfaceForms) {
             addMatchingClasses(extTypNE.getLabel(), types);

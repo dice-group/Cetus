@@ -7,6 +7,7 @@ import org.aksw.gerbil.transfer.nif.TurtleNIFDocumentCreator;
 import org.aksw.gerbil.transfer.nif.TurtleNIFDocumentParser;
 import org.aksw.simba.cetus.annotator.CetusAnnotator;
 import org.aksw.simba.cetus.annotator.CetusSurfaceFormExtractor;
+import org.aksw.simba.cetus.fox.FoxBasedTypeSearcher;
 import org.aksw.simba.cetus.yago.YagoBasedTypeSearcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +28,11 @@ public class CetusController {
     @Autowired
     private YagoBasedTypeSearcher yagoBasedSearcher;
 
+    @Autowired
+    private FoxBasedTypeSearcher foxBasedTypeSearcher;
+
     private CetusAnnotator yagoBasedAnnotator;
+    private CetusAnnotator foxBasedAnnotator;
 
     private TurtleNIFDocumentParser parser = new TurtleNIFDocumentParser();
     private TurtleNIFDocumentCreator creator = new TurtleNIFDocumentCreator();
@@ -35,11 +40,12 @@ public class CetusController {
     @PostConstruct
     public void init() {
         yagoBasedAnnotator = new CetusAnnotator(extractor, yagoBasedSearcher);
+        foxBasedAnnotator = new CetusAnnotator(extractor, foxBasedTypeSearcher);
     }
 
     @RequestMapping("/yago")
     public @ResponseBody
-    String config(@RequestBody String data) {
+    String yago(@RequestBody String data) {
         Document document = null;
         try {
             document = parser.getDocumentFromNIFString(data);
@@ -48,6 +54,20 @@ public class CetusController {
             throw new IllegalArgumentException("Couldn't parse the given NIF document.");
         }
         document = yagoBasedAnnotator.performTypeExtraction(document);
+        return creator.getDocumentAsNIFString(document);
+    }
+
+    @RequestMapping("/fox")
+    public @ResponseBody
+    String fox(@RequestBody String data) {
+        Document document = null;
+        try {
+            document = parser.getDocumentFromNIFString(data);
+        } catch (Exception e) {
+            LOGGER.error("Exception while parsing NIF string.", e);
+            throw new IllegalArgumentException("Couldn't parse the given NIF document.");
+        }
+        document = foxBasedAnnotator.performTypeExtraction(document);
         return creator.getDocumentAsNIFString(document);
     }
 
