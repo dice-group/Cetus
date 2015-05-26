@@ -82,7 +82,7 @@ public class ClassModelCreator {
 
         FileOutputStream fout = null;
         try {
-            fout = new FileOutputStream("/Daten/cetus_data/classes.ttl");
+            fout = new FileOutputStream("cetus_data/classes.ttl");
             classModel.write(fout, "TTL");
         } catch (Exception e) {
             LOGGER.error("Error while trying to write the class model to file.", e);
@@ -95,7 +95,7 @@ public class ClassModelCreator {
         YagoClassHierarchyLoader loader = new YagoClassHierarchyLoader();
         try {
             // FIXME put the path into properties file
-            loader.readClassHierarchy(new File("/Daten/cetus_data/yagoTaxonomy.tsv"), classModel);
+            loader.readClassHierarchy(new File("cetus_data/yagoTaxonomy.tsv"), classModel);
             return true;
         } catch (IOException e) {
             LOGGER.error("Couldn't load YAGO classes. Returning null.");
@@ -107,7 +107,7 @@ public class ClassModelCreator {
         DolceClassHierarchyLoader loader = new DolceClassHierarchyLoader();
         try {
             // FIXME put the path into properties file
-            loader.readClassHierarchy(new File("/Daten/cetus_data/DOLCE"), classModel);
+            loader.readClassHierarchy(new File("cetus_data/DOLCE"), classModel);
             return true;
         } catch (IOException e) {
             LOGGER.error("Couldn't load DOLCE classes. Returning null.");
@@ -119,7 +119,7 @@ public class ClassModelCreator {
         FileInputStream is = null;
         try {
             // FIXME put the path into properties file
-            is = new FileInputStream("/Daten/cetus_data/DOLCE_YAGO_links.nt");
+            is = new FileInputStream("cetus_data/DOLCE_YAGO_links.nt");
             classModel.read(is, null, "N3");
             return true;
         } catch (IOException e) {

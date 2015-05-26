@@ -33,7 +33,7 @@ public class CetusAnnotator {
         for (NamedEntity ne : extractedTypes.keySet()) {
             surfaceForms = extractedTypes.get(ne);
             resultDoc.addMarking(typeSearcher.getAllTypes(document, ne, surfaceForms));
-            document.getMarkings().addAll(surfaceForms);
+            resultDoc.getMarkings().addAll(surfaceForms);
         }
         return resultDoc;
     }

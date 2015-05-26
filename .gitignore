@@ -2,6 +2,7 @@ target
 tmp
 cache
 morph_based
+cetus_data
 *.csv
 *.log
 *.class
