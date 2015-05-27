@@ -225,6 +225,7 @@ public class CetusSurfaceFormExtractor {
         String uppercaseLabels[] = new String[numberOfTokens];
         for (int i = 0; i < numberOfTokens; ++i) {
             labels[i] = tokens.get(i + startTokenId).getString(TextAnnotation.class);
+            uppercaseLabels[i] = Character.toUpperCase(labels[i].charAt(0)) + labels[i].substring(1);
         }
         StringBuilder uriBuilder = new StringBuilder();
         StringBuilder labelBuilder = new StringBuilder();
@@ -235,7 +236,7 @@ public class CetusSurfaceFormExtractor {
             uriBuilder.delete(0, uriBuilder.length());
             labelBuilder.delete(0, labelBuilder.length());
             uriBuilder.append(BASE_URI);
-            uriBuilder.append(labels[i]);
+            uriBuilder.append(uppercaseLabels[i]);
             labelBuilder.append(labels[i]);
             for (int j = i + 1; j < numberOfTokens; ++j) {
                 uriBuilder.append(uppercaseLabels[j]);
@@ -244,9 +245,6 @@ public class CetusSurfaceFormExtractor {
             }
             results.add(new ExtendedTypedNamedEntity(startPosition, endPosition - startPosition, uriBuilder.toString(),
                     new HashSet<String>(Arrays.asList(RDFS.Class.getURI())), labelBuilder.toString()));
-            if (i > 0) {
-                uppercaseLabels[i] = Character.toUpperCase(labels[i].charAt(0)) + labels[i].substring(1);
-            }
         }
     }
     // private Document createDocument(org.aksw.gerbil.transfer.nif.Document

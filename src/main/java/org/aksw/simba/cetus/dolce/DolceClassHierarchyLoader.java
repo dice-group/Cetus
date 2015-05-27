@@ -3,6 +3,7 @@ package org.aksw.simba.cetus.dolce;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Arrays;
@@ -128,21 +129,18 @@ public class DolceClassHierarchyLoader {
         DolceClassHierarchyLoader loader = new DolceClassHierarchyLoader();
         Model model = ModelFactory.createDefaultModel();
         try {
-            loader.readClassHierarchy(new File("/Daten/cetus_data/DOLCE"), model);
+            loader.readClassHierarchy(new File("cetus_data/DOLCE"), model);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        PrintStream pout = null;
+        FileOutputStream fout = null;
         try {
-            pout = new PrintStream("test.txt");
-            StmtIterator stmtIterator = model.listStatements();
-            while (stmtIterator.hasNext()) {
-                pout.println(stmtIterator.next().toString());
-            }
+            fout = new FileOutputStream("DOLCE_hierarchy.ttl");
+            model.write(fout, "TTL");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
-            IOUtils.closeQuietly(pout);
+            IOUtils.closeQuietly(fout);
         }
     }
 }

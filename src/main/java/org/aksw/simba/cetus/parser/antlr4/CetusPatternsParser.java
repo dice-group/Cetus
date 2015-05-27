@@ -17,24 +17,25 @@ public class CetusPatternsParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		ENTITY=1, AND=2, OF=3, FORM_OF_BE=4, ADJECTIVE=5, DETERMINER=6, NUMBER=7, 
-		NOUN=8, VERB=9, ADVERB=10, FOREIGN=11, POINT=12, COMMA=13, COLON=14, WORD=15, 
-		WHITESPACE=16;
+		ENTITY=1, AND=2, OR=3, CC=4, OF=5, FORM_OF_BE=6, ADJECTIVE=7, DETERMINER=8, 
+		NUMBER=9, NOUN=10, VERB=11, ADVERB=12, FOREIGN=13, POINT=14, COMMA=15, 
+		COLON=16, WORD=17, WHITESPACE=18;
 	public static final int
 		RULE_sentence = 0, RULE_type_after_entity_pattern = 1, RULE_is_a_pattern = 2, 
 		RULE_is_a_type_of_pattern = 3, RULE_type_in_front_of_entity = 4, RULE_type_with_dt = 5, 
-		RULE_type = 6, RULE_nr = 7;
+		RULE_type = 6, RULE_nr = 7, RULE_cc_word = 8;
 	public static final String[] ruleNames = {
 		"sentence", "type_after_entity_pattern", "is_a_pattern", "is_a_type_of_pattern", 
-		"type_in_front_of_entity", "type_with_dt", "type", "nr"
+		"type_in_front_of_entity", "type_with_dt", "type", "nr", "cc_word"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'$ENTITY$'", "'and_and_CC'", "'of_of_IN'", null, null, null, null, 
-		null, null, null, null, "'._._.'", "',_,_,'", "':_:_:'"
+		null, "'$ENTITY$'", "'and_and_CC'", "'or_or_CC'", null, "'of_of_IN'", 
+		null, null, null, null, null, null, null, null, "'._._.'", "',_,_,'", 
+		"':_:_:'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "ENTITY", "AND", "OF", "FORM_OF_BE", "ADJECTIVE", "DETERMINER", 
+		null, "ENTITY", "AND", "OR", "CC", "OF", "FORM_OF_BE", "ADJECTIVE", "DETERMINER", 
 		"NUMBER", "NOUN", "VERB", "ADVERB", "FOREIGN", "POINT", "COMMA", "COLON", 
 		"WORD", "WHITESPACE"
 	};
@@ -96,29 +97,15 @@ public class CetusPatternsParser extends Parser {
 		public TerminalNode WORD(int i) {
 			return getToken(CetusPatternsParser.WORD, i);
 		}
-		public List<TerminalNode> COMMA() { return getTokens(CetusPatternsParser.COMMA); }
-		public TerminalNode COMMA(int i) {
-			return getToken(CetusPatternsParser.COMMA, i);
+		public List<Cc_wordContext> cc_word() {
+			return getRuleContexts(Cc_wordContext.class);
 		}
-		public List<TerminalNode> POINT() { return getTokens(CetusPatternsParser.POINT); }
-		public TerminalNode POINT(int i) {
-			return getToken(CetusPatternsParser.POINT, i);
-		}
-		public List<TerminalNode> COLON() { return getTokens(CetusPatternsParser.COLON); }
-		public TerminalNode COLON(int i) {
-			return getToken(CetusPatternsParser.COLON, i);
-		}
-		public List<TerminalNode> AND() { return getTokens(CetusPatternsParser.AND); }
-		public TerminalNode AND(int i) {
-			return getToken(CetusPatternsParser.AND, i);
+		public Cc_wordContext cc_word(int i) {
+			return getRuleContext(Cc_wordContext.class,i);
 		}
 		public List<TerminalNode> OF() { return getTokens(CetusPatternsParser.OF); }
 		public TerminalNode OF(int i) {
 			return getToken(CetusPatternsParser.OF, i);
-		}
-		public List<TerminalNode> FORM_OF_BE() { return getTokens(CetusPatternsParser.FORM_OF_BE); }
-		public TerminalNode FORM_OF_BE(int i) {
-			return getToken(CetusPatternsParser.FORM_OF_BE, i);
 		}
 		public List<TerminalNode> ADJECTIVE() { return getTokens(CetusPatternsParser.ADJECTIVE); }
 		public TerminalNode ADJECTIVE(int i) {
@@ -136,10 +123,6 @@ public class CetusPatternsParser extends Parser {
 		public TerminalNode NOUN(int i) {
 			return getToken(CetusPatternsParser.NOUN, i);
 		}
-		public List<TerminalNode> VERB() { return getTokens(CetusPatternsParser.VERB); }
-		public TerminalNode VERB(int i) {
-			return getToken(CetusPatternsParser.VERB, i);
-		}
 		public List<TerminalNode> FOREIGN() { return getTokens(CetusPatternsParser.FOREIGN); }
 		public TerminalNode FOREIGN(int i) {
 			return getToken(CetusPatternsParser.FOREIGN, i);
@@ -147,6 +130,26 @@ public class CetusPatternsParser extends Parser {
 		public List<TerminalNode> ADVERB() { return getTokens(CetusPatternsParser.ADVERB); }
 		public TerminalNode ADVERB(int i) {
 			return getToken(CetusPatternsParser.ADVERB, i);
+		}
+		public List<TerminalNode> COMMA() { return getTokens(CetusPatternsParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(CetusPatternsParser.COMMA, i);
+		}
+		public List<TerminalNode> POINT() { return getTokens(CetusPatternsParser.POINT); }
+		public TerminalNode POINT(int i) {
+			return getToken(CetusPatternsParser.POINT, i);
+		}
+		public List<TerminalNode> COLON() { return getTokens(CetusPatternsParser.COLON); }
+		public TerminalNode COLON(int i) {
+			return getToken(CetusPatternsParser.COLON, i);
+		}
+		public List<TerminalNode> FORM_OF_BE() { return getTokens(CetusPatternsParser.FORM_OF_BE); }
+		public TerminalNode FORM_OF_BE(int i) {
+			return getToken(CetusPatternsParser.FORM_OF_BE, i);
+		}
+		public List<TerminalNode> VERB() { return getTokens(CetusPatternsParser.VERB); }
+		public TerminalNode VERB(int i) {
+			return getToken(CetusPatternsParser.VERB, i);
 		}
 		public Type_in_front_of_entityContext type_in_front_of_entity() {
 			return getRuleContext(Type_in_front_of_entityContext.class,0);
@@ -167,66 +170,270 @@ public class CetusPatternsParser extends Parser {
 		enterRule(_localctx, 0, RULE_sentence);
 		int _la;
 		try {
-			setState(53);
-			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+			int _alt;
+			setState(90);
+			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(19);
+				setState(29);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==WORD) {
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AND) | (1L << OR) | (1L << CC) | (1L << OF) | (1L << ADJECTIVE) | (1L << DETERMINER) | (1L << NUMBER) | (1L << NOUN) | (1L << ADVERB) | (1L << FOREIGN) | (1L << WORD))) != 0)) {
 					{
-					{
-					setState(16);
-					match(WORD);
+					setState(27);
+					switch (_input.LA(1)) {
+					case WORD:
+						{
+						setState(18);
+						match(WORD);
+						}
+						break;
+					case AND:
+					case OR:
+					case CC:
+						{
+						setState(19);
+						cc_word();
+						}
+						break;
+					case OF:
+						{
+						setState(20);
+						match(OF);
+						}
+						break;
+					case ADJECTIVE:
+						{
+						setState(21);
+						match(ADJECTIVE);
+						}
+						break;
+					case DETERMINER:
+						{
+						setState(22);
+						match(DETERMINER);
+						}
+						break;
+					case NUMBER:
+						{
+						setState(23);
+						match(NUMBER);
+						}
+						break;
+					case NOUN:
+						{
+						setState(24);
+						match(NOUN);
+						}
+						break;
+					case FOREIGN:
+						{
+						setState(25);
+						match(FOREIGN);
+						}
+						break;
+					case ADVERB:
+						{
+						setState(26);
+						match(ADVERB);
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
 					}
 					}
-					setState(21);
+					setState(31);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(22);
+				setState(32);
 				match(ENTITY);
-				setState(30);
-				switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+				setState(48);
+				_la = _input.LA(1);
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AND) | (1L << OR) | (1L << CC))) != 0)) {
+					{
+					setState(33);
+					cc_word();
+					setState(45);
+					_errHandler.sync(this);
+					_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
+					while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+						if ( _alt==1 ) {
+							{
+							setState(43);
+							switch (_input.LA(1)) {
+							case WORD:
+								{
+								setState(34);
+								match(WORD);
+								}
+								break;
+							case AND:
+							case OR:
+							case CC:
+								{
+								setState(35);
+								cc_word();
+								}
+								break;
+							case OF:
+								{
+								setState(36);
+								match(OF);
+								}
+								break;
+							case ADJECTIVE:
+								{
+								setState(37);
+								match(ADJECTIVE);
+								}
+								break;
+							case DETERMINER:
+								{
+								setState(38);
+								match(DETERMINER);
+								}
+								break;
+							case NUMBER:
+								{
+								setState(39);
+								match(NUMBER);
+								}
+								break;
+							case NOUN:
+								{
+								setState(40);
+								match(NOUN);
+								}
+								break;
+							case FOREIGN:
+								{
+								setState(41);
+								match(FOREIGN);
+								}
+								break;
+							case ADVERB:
+								{
+								setState(42);
+								match(ADVERB);
+								}
+								break;
+							default:
+								throw new NoViableAltException(this);
+							}
+							} 
+						}
+						setState(47);
+						_errHandler.sync(this);
+						_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
+					}
+					}
+				}
+
+				setState(67);
+				switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 				case 1:
 					{
-					setState(23);
+					setState(50);
 					match(COMMA);
-					setState(25); 
+					setState(62); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					do {
 						{
-						{
-						setState(24);
-						_la = _input.LA(1);
-						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AND) | (1L << OF) | (1L << FORM_OF_BE) | (1L << ADJECTIVE) | (1L << DETERMINER) | (1L << NUMBER) | (1L << NOUN) | (1L << VERB) | (1L << ADVERB) | (1L << FOREIGN) | (1L << WORD))) != 0)) ) {
-						_errHandler.recoverInline(this);
-						} else {
-							consume();
+						setState(62);
+						switch (_input.LA(1)) {
+						case WORD:
+							{
+							setState(51);
+							match(WORD);
+							}
+							break;
+						case AND:
+						case OR:
+						case CC:
+							{
+							setState(52);
+							cc_word();
+							}
+							break;
+						case OF:
+							{
+							setState(53);
+							match(OF);
+							}
+							break;
+						case FORM_OF_BE:
+							{
+							setState(54);
+							match(FORM_OF_BE);
+							}
+							break;
+						case ADJECTIVE:
+							{
+							setState(55);
+							match(ADJECTIVE);
+							}
+							break;
+						case DETERMINER:
+							{
+							setState(56);
+							match(DETERMINER);
+							}
+							break;
+						case NUMBER:
+							{
+							setState(57);
+							match(NUMBER);
+							}
+							break;
+						case NOUN:
+							{
+							setState(58);
+							match(NOUN);
+							}
+							break;
+						case VERB:
+							{
+							setState(59);
+							match(VERB);
+							}
+							break;
+						case FOREIGN:
+							{
+							setState(60);
+							match(FOREIGN);
+							}
+							break;
+						case ADVERB:
+							{
+							setState(61);
+							match(ADVERB);
+							}
+							break;
+						default:
+							throw new NoViableAltException(this);
 						}
 						}
-						}
-						setState(27); 
+						setState(64); 
 						_errHandler.sync(this);
 						_la = _input.LA(1);
-					} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AND) | (1L << OF) | (1L << FORM_OF_BE) | (1L << ADJECTIVE) | (1L << DETERMINER) | (1L << NUMBER) | (1L << NOUN) | (1L << VERB) | (1L << ADVERB) | (1L << FOREIGN) | (1L << WORD))) != 0) );
-					setState(29);
+					} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AND) | (1L << OR) | (1L << CC) | (1L << OF) | (1L << FORM_OF_BE) | (1L << ADJECTIVE) | (1L << DETERMINER) | (1L << NUMBER) | (1L << NOUN) | (1L << VERB) | (1L << ADVERB) | (1L << FOREIGN) | (1L << WORD))) != 0) );
+					setState(66);
 					match(COMMA);
 					}
 					break;
 				}
-				setState(32);
+				setState(69);
 				type_after_entity_pattern();
-				setState(36);
+				setState(73);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << POINT) | (1L << COMMA) | (1L << COLON) | (1L << WORD))) != 0)) {
 					{
 					{
-					setState(33);
+					setState(70);
 					_la = _input.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << POINT) | (1L << COMMA) | (1L << COLON) | (1L << WORD))) != 0)) ) {
 					_errHandler.recoverInline(this);
@@ -235,7 +442,7 @@ public class CetusPatternsParser extends Parser {
 					}
 					}
 					}
-					setState(38);
+					setState(75);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -244,35 +451,35 @@ public class CetusPatternsParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(42);
+				setState(79);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==WORD) {
 					{
 					{
-					setState(39);
+					setState(76);
 					match(WORD);
 					}
 					}
-					setState(44);
+					setState(81);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(45);
+				setState(82);
 				type_in_front_of_entity();
-				setState(46);
+				setState(83);
 				match(ENTITY);
-				setState(50);
+				setState(87);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==WORD) {
 					{
 					{
-					setState(47);
+					setState(84);
 					match(WORD);
 					}
 					}
-					setState(52);
+					setState(89);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -316,26 +523,26 @@ public class CetusPatternsParser extends Parser {
 		Type_after_entity_patternContext _localctx = new Type_after_entity_patternContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_type_after_entity_pattern);
 		try {
-			setState(58);
-			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
+			setState(95);
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(55);
+				setState(92);
 				is_a_type_of_pattern();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(56);
+				setState(93);
 				is_a_pattern();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(57);
+				setState(94);
 				type_with_dt();
 				}
 				break;
@@ -387,60 +594,60 @@ public class CetusPatternsParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61);
+			setState(98);
 			_la = _input.LA(1);
 			if (_la==COMMA) {
 				{
-				setState(60);
+				setState(97);
 				match(COMMA);
 				}
 			}
 
-			setState(63);
+			setState(100);
 			match(FORM_OF_BE);
-			setState(64);
+			setState(101);
 			type_with_dt();
-			setState(75);
+			setState(112);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(70);
-					switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
+					setState(107);
+					switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 					case 1:
 						{
 						{
-						setState(66);
+						setState(103);
 						_la = _input.LA(1);
 						if (_la==COMMA) {
 							{
-							setState(65);
+							setState(102);
 							match(COMMA);
 							}
 						}
 
-						setState(68);
+						setState(105);
 						match(AND);
 						}
 						}
 						break;
 					case 2:
 						{
-						setState(69);
+						setState(106);
 						match(COMMA);
 						}
 						break;
 					}
-					setState(72);
+					setState(109);
 					type_with_dt();
 					}
 					} 
 				}
-				setState(77);
+				setState(114);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
 			}
 			}
 		}
@@ -483,22 +690,22 @@ public class CetusPatternsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(79);
+			setState(116);
 			_la = _input.LA(1);
 			if (_la==COMMA) {
 				{
-				setState(78);
+				setState(115);
 				match(COMMA);
 				}
 			}
 
-			setState(81);
+			setState(118);
 			match(FORM_OF_BE);
-			setState(82);
+			setState(119);
 			type_with_dt();
-			setState(83);
+			setState(120);
 			match(OF);
-			setState(84);
+			setState(121);
 			type_with_dt();
 			}
 		}
@@ -538,13 +745,13 @@ public class CetusPatternsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(86);
+			setState(123);
 			type_with_dt();
-			setState(88);
+			setState(125);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OF) | (1L << COMMA) | (1L << COLON))) != 0)) {
 				{
-				setState(87);
+				setState(124);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OF) | (1L << COMMA) | (1L << COLON))) != 0)) ) {
 				_errHandler.recoverInline(this);
@@ -593,25 +800,25 @@ public class CetusPatternsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(91);
+			setState(128);
 			_la = _input.LA(1);
 			if (_la==DETERMINER) {
 				{
-				setState(90);
+				setState(127);
 				match(DETERMINER);
 				}
 			}
 
-			setState(94);
+			setState(131);
 			_la = _input.LA(1);
 			if (_la==NUMBER) {
 				{
-				setState(93);
+				setState(130);
 				nr();
 				}
 			}
 
-			setState(96);
+			setState(133);
 			type();
 			}
 		}
@@ -662,13 +869,13 @@ public class CetusPatternsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(101);
+			setState(138);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ADJECTIVE) | (1L << VERB) | (1L << ADVERB))) != 0)) {
 				{
 				{
-				setState(98);
+				setState(135);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ADJECTIVE) | (1L << VERB) | (1L << ADVERB))) != 0)) ) {
 				_errHandler.recoverInline(this);
@@ -677,30 +884,30 @@ public class CetusPatternsParser extends Parser {
 				}
 				}
 				}
-				setState(103);
+				setState(140);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(105);
+			setState(142);
 			_la = _input.LA(1);
 			if (_la==FOREIGN) {
 				{
-				setState(104);
+				setState(141);
 				match(FOREIGN);
 				}
 			}
 
-			setState(108); 
+			setState(145); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(107);
+				setState(144);
 				match(NOUN);
 				}
 				}
-				setState(110); 
+				setState(147); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==NOUN );
@@ -736,7 +943,7 @@ public class CetusPatternsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(112);
+			setState(149);
 			match(NUMBER);
 			}
 		}
@@ -751,38 +958,97 @@ public class CetusPatternsParser extends Parser {
 		return _localctx;
 	}
 
+	public static class Cc_wordContext extends ParserRuleContext {
+		public TerminalNode AND() { return getToken(CetusPatternsParser.AND, 0); }
+		public TerminalNode OR() { return getToken(CetusPatternsParser.OR, 0); }
+		public TerminalNode CC() { return getToken(CetusPatternsParser.CC, 0); }
+		public Cc_wordContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_cc_word; }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CetusPatternsVisitor ) return ((CetusPatternsVisitor<? extends T>)visitor).visitCc_word(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Cc_wordContext cc_word() throws RecognitionException {
+		Cc_wordContext _localctx = new Cc_wordContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_cc_word);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(151);
+			_la = _input.LA(1);
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AND) | (1L << OR) | (1L << CC))) != 0)) ) {
+			_errHandler.recoverInline(this);
+			} else {
+				consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\22u\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\7\2\24\n\2\f\2"+
-		"\16\2\27\13\2\3\2\3\2\3\2\6\2\34\n\2\r\2\16\2\35\3\2\5\2!\n\2\3\2\3\2"+
-		"\7\2%\n\2\f\2\16\2(\13\2\3\2\7\2+\n\2\f\2\16\2.\13\2\3\2\3\2\3\2\7\2\63"+
-		"\n\2\f\2\16\2\66\13\2\5\28\n\2\3\3\3\3\3\3\5\3=\n\3\3\4\5\4@\n\4\3\4\3"+
-		"\4\3\4\5\4E\n\4\3\4\3\4\5\4I\n\4\3\4\7\4L\n\4\f\4\16\4O\13\4\3\5\5\5R"+
-		"\n\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\5\6[\n\6\3\7\5\7^\n\7\3\7\5\7a\n\7\3"+
-		"\7\3\7\3\b\7\bf\n\b\f\b\16\bi\13\b\3\b\5\bl\n\b\3\b\6\bo\n\b\r\b\16\b"+
-		"p\3\t\3\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\6\4\2\4\r\21\21\3\2\16\21\4\2"+
-		"\5\5\17\20\4\2\7\7\13\f\u0080\2\67\3\2\2\2\4<\3\2\2\2\6?\3\2\2\2\bQ\3"+
-		"\2\2\2\nX\3\2\2\2\f]\3\2\2\2\16g\3\2\2\2\20r\3\2\2\2\22\24\7\21\2\2\23"+
-		"\22\3\2\2\2\24\27\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27"+
-		"\25\3\2\2\2\30 \7\3\2\2\31\33\7\17\2\2\32\34\t\2\2\2\33\32\3\2\2\2\34"+
-		"\35\3\2\2\2\35\33\3\2\2\2\35\36\3\2\2\2\36\37\3\2\2\2\37!\7\17\2\2 \31"+
-		"\3\2\2\2 !\3\2\2\2!\"\3\2\2\2\"&\5\4\3\2#%\t\3\2\2$#\3\2\2\2%(\3\2\2\2"+
-		"&$\3\2\2\2&\'\3\2\2\2\'8\3\2\2\2(&\3\2\2\2)+\7\21\2\2*)\3\2\2\2+.\3\2"+
-		"\2\2,*\3\2\2\2,-\3\2\2\2-/\3\2\2\2.,\3\2\2\2/\60\5\n\6\2\60\64\7\3\2\2"+
-		"\61\63\7\21\2\2\62\61\3\2\2\2\63\66\3\2\2\2\64\62\3\2\2\2\64\65\3\2\2"+
-		"\2\658\3\2\2\2\66\64\3\2\2\2\67\25\3\2\2\2\67,\3\2\2\28\3\3\2\2\29=\5"+
-		"\b\5\2:=\5\6\4\2;=\5\f\7\2<9\3\2\2\2<:\3\2\2\2<;\3\2\2\2=\5\3\2\2\2>@"+
-		"\7\17\2\2?>\3\2\2\2?@\3\2\2\2@A\3\2\2\2AB\7\6\2\2BM\5\f\7\2CE\7\17\2\2"+
-		"DC\3\2\2\2DE\3\2\2\2EF\3\2\2\2FI\7\4\2\2GI\7\17\2\2HD\3\2\2\2HG\3\2\2"+
-		"\2IJ\3\2\2\2JL\5\f\7\2KH\3\2\2\2LO\3\2\2\2MK\3\2\2\2MN\3\2\2\2N\7\3\2"+
-		"\2\2OM\3\2\2\2PR\7\17\2\2QP\3\2\2\2QR\3\2\2\2RS\3\2\2\2ST\7\6\2\2TU\5"+
-		"\f\7\2UV\7\5\2\2VW\5\f\7\2W\t\3\2\2\2XZ\5\f\7\2Y[\t\4\2\2ZY\3\2\2\2Z["+
-		"\3\2\2\2[\13\3\2\2\2\\^\7\b\2\2]\\\3\2\2\2]^\3\2\2\2^`\3\2\2\2_a\5\20"+
-		"\t\2`_\3\2\2\2`a\3\2\2\2ab\3\2\2\2bc\5\16\b\2c\r\3\2\2\2df\t\5\2\2ed\3"+
-		"\2\2\2fi\3\2\2\2ge\3\2\2\2gh\3\2\2\2hk\3\2\2\2ig\3\2\2\2jl\7\r\2\2kj\3"+
-		"\2\2\2kl\3\2\2\2ln\3\2\2\2mo\7\n\2\2nm\3\2\2\2op\3\2\2\2pn\3\2\2\2pq\3"+
-		"\2\2\2q\17\3\2\2\2rs\7\t\2\2s\21\3\2\2\2\25\25\35 &,\64\67<?DHMQZ]`gk"+
-		"p";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\24\u009c\4\2\t\2"+
+		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\3"+
+		"\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\7\2\36\n\2\f\2\16\2!\13\2\3\2\3\2\3\2\3"+
+		"\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\7\2.\n\2\f\2\16\2\61\13\2\5\2\63\n\2\3"+
+		"\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\6\2A\n\2\r\2\16\2B\3\2"+
+		"\5\2F\n\2\3\2\3\2\7\2J\n\2\f\2\16\2M\13\2\3\2\7\2P\n\2\f\2\16\2S\13\2"+
+		"\3\2\3\2\3\2\7\2X\n\2\f\2\16\2[\13\2\5\2]\n\2\3\3\3\3\3\3\5\3b\n\3\3\4"+
+		"\5\4e\n\4\3\4\3\4\3\4\5\4j\n\4\3\4\3\4\5\4n\n\4\3\4\7\4q\n\4\f\4\16\4"+
+		"t\13\4\3\5\5\5w\n\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\5\6\u0080\n\6\3\7\5\7"+
+		"\u0083\n\7\3\7\5\7\u0086\n\7\3\7\3\7\3\b\7\b\u008b\n\b\f\b\16\b\u008e"+
+		"\13\b\3\b\5\b\u0091\n\b\3\b\6\b\u0094\n\b\r\b\16\b\u0095\3\t\3\t\3\n\3"+
+		"\n\3\n\2\2\13\2\4\6\b\n\f\16\20\22\2\6\3\2\20\23\4\2\7\7\21\22\4\2\t\t"+
+		"\r\16\3\2\4\6\u00c2\2\\\3\2\2\2\4a\3\2\2\2\6d\3\2\2\2\bv\3\2\2\2\n}\3"+
+		"\2\2\2\f\u0082\3\2\2\2\16\u008c\3\2\2\2\20\u0097\3\2\2\2\22\u0099\3\2"+
+		"\2\2\24\36\7\23\2\2\25\36\5\22\n\2\26\36\7\7\2\2\27\36\7\t\2\2\30\36\7"+
+		"\n\2\2\31\36\7\13\2\2\32\36\7\f\2\2\33\36\7\17\2\2\34\36\7\16\2\2\35\24"+
+		"\3\2\2\2\35\25\3\2\2\2\35\26\3\2\2\2\35\27\3\2\2\2\35\30\3\2\2\2\35\31"+
+		"\3\2\2\2\35\32\3\2\2\2\35\33\3\2\2\2\35\34\3\2\2\2\36!\3\2\2\2\37\35\3"+
+		"\2\2\2\37 \3\2\2\2 \"\3\2\2\2!\37\3\2\2\2\"\62\7\3\2\2#/\5\22\n\2$.\7"+
+		"\23\2\2%.\5\22\n\2&.\7\7\2\2\'.\7\t\2\2(.\7\n\2\2).\7\13\2\2*.\7\f\2\2"+
+		"+.\7\17\2\2,.\7\16\2\2-$\3\2\2\2-%\3\2\2\2-&\3\2\2\2-\'\3\2\2\2-(\3\2"+
+		"\2\2-)\3\2\2\2-*\3\2\2\2-+\3\2\2\2-,\3\2\2\2.\61\3\2\2\2/-\3\2\2\2/\60"+
+		"\3\2\2\2\60\63\3\2\2\2\61/\3\2\2\2\62#\3\2\2\2\62\63\3\2\2\2\63E\3\2\2"+
+		"\2\64@\7\21\2\2\65A\7\23\2\2\66A\5\22\n\2\67A\7\7\2\28A\7\b\2\29A\7\t"+
+		"\2\2:A\7\n\2\2;A\7\13\2\2<A\7\f\2\2=A\7\r\2\2>A\7\17\2\2?A\7\16\2\2@\65"+
+		"\3\2\2\2@\66\3\2\2\2@\67\3\2\2\2@8\3\2\2\2@9\3\2\2\2@:\3\2\2\2@;\3\2\2"+
+		"\2@<\3\2\2\2@=\3\2\2\2@>\3\2\2\2@?\3\2\2\2AB\3\2\2\2B@\3\2\2\2BC\3\2\2"+
+		"\2CD\3\2\2\2DF\7\21\2\2E\64\3\2\2\2EF\3\2\2\2FG\3\2\2\2GK\5\4\3\2HJ\t"+
+		"\2\2\2IH\3\2\2\2JM\3\2\2\2KI\3\2\2\2KL\3\2\2\2L]\3\2\2\2MK\3\2\2\2NP\7"+
+		"\23\2\2ON\3\2\2\2PS\3\2\2\2QO\3\2\2\2QR\3\2\2\2RT\3\2\2\2SQ\3\2\2\2TU"+
+		"\5\n\6\2UY\7\3\2\2VX\7\23\2\2WV\3\2\2\2X[\3\2\2\2YW\3\2\2\2YZ\3\2\2\2"+
+		"Z]\3\2\2\2[Y\3\2\2\2\\\37\3\2\2\2\\Q\3\2\2\2]\3\3\2\2\2^b\5\b\5\2_b\5"+
+		"\6\4\2`b\5\f\7\2a^\3\2\2\2a_\3\2\2\2a`\3\2\2\2b\5\3\2\2\2ce\7\21\2\2d"+
+		"c\3\2\2\2de\3\2\2\2ef\3\2\2\2fg\7\b\2\2gr\5\f\7\2hj\7\21\2\2ih\3\2\2\2"+
+		"ij\3\2\2\2jk\3\2\2\2kn\7\4\2\2ln\7\21\2\2mi\3\2\2\2ml\3\2\2\2no\3\2\2"+
+		"\2oq\5\f\7\2pm\3\2\2\2qt\3\2\2\2rp\3\2\2\2rs\3\2\2\2s\7\3\2\2\2tr\3\2"+
+		"\2\2uw\7\21\2\2vu\3\2\2\2vw\3\2\2\2wx\3\2\2\2xy\7\b\2\2yz\5\f\7\2z{\7"+
+		"\7\2\2{|\5\f\7\2|\t\3\2\2\2}\177\5\f\7\2~\u0080\t\3\2\2\177~\3\2\2\2\177"+
+		"\u0080\3\2\2\2\u0080\13\3\2\2\2\u0081\u0083\7\n\2\2\u0082\u0081\3\2\2"+
+		"\2\u0082\u0083\3\2\2\2\u0083\u0085\3\2\2\2\u0084\u0086\5\20\t\2\u0085"+
+		"\u0084\3\2\2\2\u0085\u0086\3\2\2\2\u0086\u0087\3\2\2\2\u0087\u0088\5\16"+
+		"\b\2\u0088\r\3\2\2\2\u0089\u008b\t\4\2\2\u008a\u0089\3\2\2\2\u008b\u008e"+
+		"\3\2\2\2\u008c\u008a\3\2\2\2\u008c\u008d\3\2\2\2\u008d\u0090\3\2\2\2\u008e"+
+		"\u008c\3\2\2\2\u008f\u0091\7\17\2\2\u0090\u008f\3\2\2\2\u0090\u0091\3"+
+		"\2\2\2\u0091\u0093\3\2\2\2\u0092\u0094\7\f\2\2\u0093\u0092\3\2\2\2\u0094"+
+		"\u0095\3\2\2\2\u0095\u0093\3\2\2\2\u0095\u0096\3\2\2\2\u0096\17\3\2\2"+
+		"\2\u0097\u0098\7\13\2\2\u0098\21\3\2\2\2\u0099\u009a\t\5\2\2\u009a\23"+
+		"\3\2\2\2\32\35\37-/\62@BEKQY\\adimrv\177\u0082\u0085\u008c\u0090\u0095";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

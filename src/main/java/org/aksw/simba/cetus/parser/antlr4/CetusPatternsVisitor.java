@@ -59,4 +59,10 @@ public interface CetusPatternsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNr(CetusPatternsParser.NrContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CetusPatternsParser#cc_word}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCc_word(CetusPatternsParser.Cc_wordContext ctx);
 }

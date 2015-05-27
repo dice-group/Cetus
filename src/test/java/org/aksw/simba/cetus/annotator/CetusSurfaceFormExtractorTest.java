@@ -36,13 +36,13 @@ public class CetusSurfaceFormExtractorTest {
 			new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
 				new ExtendedTypedNamedEntity(18, 17,
 					CetusSurfaceFormExtractor.BASE_URI
-						+ "fictionalVillain",
+						+ "FictionalVillain",
 					new HashSet<String>(Arrays
 						.asList(RDFS.Class.getURI())),
 					"fictional villain"),
 				new ExtendedTypedNamedEntity(28, 7,
 					CetusSurfaceFormExtractor.BASE_URI
-						+ "villain",
+						+ "Villain",
 					new HashSet<String>(Arrays
 						.asList(RDFS.Class.getURI())),
 					"villain"))) });
@@ -55,13 +55,13 @@ public class CetusSurfaceFormExtractorTest {
 			new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
 				new ExtendedTypedNamedEntity(101, 15,
 					CetusSurfaceFormExtractor.BASE_URI
-						+ "holdingCompany",
+						+ "HoldingCompany",
 					new HashSet<String>(Arrays
 						.asList(RDFS.Class.getURI())),
 					"holding company"),
 				new ExtendedTypedNamedEntity(109, 7,
 					CetusSurfaceFormExtractor.BASE_URI
-						+ "company",
+						+ "Company",
 					new HashSet<String>(Arrays
 						.asList(RDFS.Class.getURI())),
 					"company"))) });
@@ -74,17 +74,58 @@ public class CetusSurfaceFormExtractorTest {
 			new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
 				new ExtendedTypedNamedEntity(39, 13,
 					CetusSurfaceFormExtractor.BASE_URI
-						+ "footballClub",
+						+ "FootballClub",
 					new HashSet<String>(Arrays
 						.asList(RDFS.Class.getURI())),
 					"football club"),
 				new ExtendedTypedNamedEntity(48, 4,
 					CetusSurfaceFormExtractor.BASE_URI
-						+ "club", new HashSet<String>(
+						+ "Club", new HashSet<String>(
 						Arrays.asList(RDFS.Class
 							.getURI())), "club"))) });
+	testConfigs
+		.add(new Object[] {
+			new DocumentImpl(
+				"A CPU socket or CPU slot is a mechanical component that provides mechanical and electrical connections between a microprocessor and a printed circuit board .",
+				Arrays.asList((Marking) new NamedEntity(2, 10,
+					"http://dbpedia.org/resource/CPU_socket"))),
+			new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
+				new ExtendedTypedNamedEntity(30, 20,
+					CetusSurfaceFormExtractor.BASE_URI
+						+ "MechanicalComponent",
+					new HashSet<String>(Arrays
+						.asList(RDFS.Class.getURI())),
+					"mechanical component"),
+				new ExtendedTypedNamedEntity(41, 9,
+					CetusSurfaceFormExtractor.BASE_URI
+						+ "Component",
+					new HashSet<String>(Arrays
+						.asList(RDFS.Class.getURI())),
+					"component"))) });
+	testConfigs
+	.add(new Object[] {
+		new DocumentImpl(
+			"An Abbe refractometer is a bench-top device for the high-precision measurement of an index of refraction.",
+			Arrays.asList((Marking) new NamedEntity(3, 18,
+				"http://dbpedia.org/resource/Abbe_refractometer"))),
+		new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
+			new ExtendedTypedNamedEntity(27, 16,
+				CetusSurfaceFormExtractor.BASE_URI
+					+ "Bench-topDevice",
+				new HashSet<String>(Arrays
+					.asList(RDFS.Class.getURI())),
+				"bench-top device"),
+			new ExtendedTypedNamedEntity(37, 6,
+				CetusSurfaceFormExtractor.BASE_URI
+					+ "Device",
+				new HashSet<String>(Arrays
+					.asList(RDFS.Class.getURI())),
+				"device"))) });
 	return testConfigs;
     }
+
+    private static final CetusSurfaceFormExtractor EXTRACTOR = CetusSurfaceFormExtractor
+	    .create();
 
     public Document nifDocument;
     public Set<ExtendedTypedNamedEntity> expectedTypes;
@@ -97,10 +138,7 @@ public class CetusSurfaceFormExtractorTest {
 
     @Test
     public void test() {
-	CetusSurfaceFormExtractor extractor = CetusSurfaceFormExtractor
-		.create();
-
-	Map<NamedEntity, List<ExtendedTypedNamedEntity>> result = extractor
+	Map<NamedEntity, List<ExtendedTypedNamedEntity>> result = EXTRACTOR
 		.extractTypeSurfaceForms(nifDocument);
 	List<ExtendedTypedNamedEntity> resultTypes;
 	for (NamedEntity ne : nifDocument.getMarkings(NamedEntity.class)) {

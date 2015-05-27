@@ -2,8 +2,8 @@ package org.aksw.simba.cetus.yago;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,6 +22,7 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.carrotsearch.hppc.BitSet;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
@@ -98,8 +99,8 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 	FileInputStream is = null;
 	try {
 	    // FIXME put the path into properties file
-	    is = new FileInputStream("cetus_data/classes.xml");
-	    classModel.read(is, null, "RDF/XML");
+	    is = new FileInputStream("cetus_data/classes.ttl");
+	    classModel.read(is, null, "TTL");
 	    return true;
 	} catch (IOException e) {
 	    LOGGER.error(
@@ -197,6 +198,7 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 	    Model dolceClassModel, Set<Resource> unlinkedDolceClasses) {
 	Queue<Resource> queue = new LinkedList<Resource>(classes);
 	Resource classResource, superClass, subClass;
+	RDFNode node;
 	NodeIterator nodeIterator;
 	ResIterator resIterator;
 	boolean addClass;
@@ -206,22 +208,32 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 		nodeIterator = dolceClassModel.listObjectsOfProperty(
 			classResource, RDFS.subClassOf);
 		while (nodeIterator.hasNext()) {
-		    superClass = nodeIterator.next().asResource();
-		    // get all sub classes of this class
-		    resIterator = dolceClassModel.listSubjectsWithProperty(
-			    RDFS.subClassOf, superClass);
-		    addClass = true;
-		    // Check that all sub classes of this super class are
-		    // already in
-		    // the list of classes or are marked as unlinked classes
-		    while (resIterator.hasNext() && addClass) {
-			subClass = resIterator.next();
-			addClass = classes.contains(subClass)
-				|| unlinkedDolceClasses.contains(subClass);
-		    }
-		    if (addClass) {
-			classes.add(superClass);
-			queue.add(superClass);
+		    node = nodeIterator.next();
+		    if (node.isResource()) {
+			superClass = node.asResource();
+			// get all sub classes of this class
+			resIterator = dolceClassModel.listSubjectsWithProperty(
+				RDFS.subClassOf, superClass);
+			addClass = true;
+			// Check that all sub classes of this super class are
+			// already in
+			// the list of classes or are marked as unlinked classes
+			while (resIterator.hasNext() && addClass) {
+			    subClass = resIterator.next();
+			    addClass = classes.contains(subClass)
+				    || unlinkedDolceClasses.contains(subClass);
+			}
+			if (addClass) {
+			    classes.add(superClass);
+			    queue.add(superClass);
+			    if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Added " + superClass.getURI());
+			    }
+			}
+		    } else {
+			LOGGER.error("Expected a resource in the statement ("
+				+ classResource + ", rdfs:subClassOf, " + node
+				+ "). Ignoring this statement.");
 		    }
 		}
 	    }
@@ -279,9 +291,16 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
     protected void addMatchingClasses(String label, Set<Resource> types) {
 	Resource resources[];
 	if (labelIndex.containsKey(label)) {
+	    List<Resource> matchingTypes = new ArrayList<Resource>();
 	    resources = labelIndex.get(label);
 	    for (int i = 0; i < resources.length; i++) {
-		types.add(resources[i]);
+		matchingTypes.add(resources[i]);
+	    }
+	    filterMatchingTypes(label, matchingTypes);
+	    types.addAll(matchingTypes);
+	    if (LOGGER.isDebugEnabled() && (resources.length > 0)) {
+		LOGGER.debug("Added classes matching \"" + label + "\" --> "
+			+ Arrays.toString(resources));
 	    }
 	} else {
 	    LOGGER.info("Couldn't find a matching YAGO class for the label \""
@@ -300,9 +319,52 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 	// }
     }
 
+    private void filterMatchingTypes(String label, List<Resource> matchingTypes) {
+	BitSet matchingDirectly = new BitSet(matchingTypes.size());
+	int id = 0;
+	for (Resource matchingType : matchingTypes) {
+	    if (isMatchingDirectly(matchingType, label)) {
+		matchingDirectly.set(id);
+	    }
+	    ++id;
+	}
+	if (matchingDirectly.isEmpty()) {
+	    return;
+	}
+	List<Resource> elementsToRemove = new ArrayList<Resource>(
+		matchingTypes.size());
+	id = 0;
+	for (Resource matchingType : matchingTypes) {
+	    if (!matchingDirectly.get(id)) {
+		elementsToRemove.add(matchingType);
+	    }
+	    ++id;
+	}
+	matchingTypes.removeAll(elementsToRemove);
+    }
+
+    private boolean isMatchingDirectly(Resource matchingType, String label) {
+	String typeName = matchingType.getLocalName();
+	if(typeName.startsWith("wordnet_")) {
+	    typeName = typeName.substring(8);
+	}
+	StringBuilder builder = new StringBuilder();
+	char chars[] = typeName.toCharArray();
+	for (int i = 0; i < chars.length; i++) {
+	    if (chars[i] == '_') {
+		builder.append(' ');
+	    } else if (!Character.isDigit(chars[i])) {
+		builder.append(Character.toLowerCase(chars[i]));
+	    }
+	}
+	typeName = builder.toString().trim();
+	return typeName.equals(label);
+    }
+
     protected void searchDolceSuperClasses(Set<Resource> types) {
 	Queue<Resource> queue = new LinkedList<Resource>(types);
 	Resource classResource, superClass;
+	RDFNode node;
 	NodeIterator nodeIterator;
 	Set<Resource> yagoSuperClasses = new HashSet<Resource>();
 	Set<Resource> dolceSuperClasses = new HashSet<Resource>();
@@ -314,11 +376,18 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 	    yagoSuperClasses.clear();
 	    dolceSuperClasses.clear();
 	    while (nodeIterator.hasNext()) {
-		superClass = nodeIterator.next().asResource();
-		if (dolceClassModel.containsResource(superClass)) {
-		    dolceSuperClasses.add(superClass);
+		node = nodeIterator.next();
+		if (node.isResource()) {
+		    superClass = node.asResource();
+		    if (dolceClassModel.containsResource(superClass)) {
+			dolceSuperClasses.add(superClass);
+		    } else {
+			yagoSuperClasses.add(superClass);
+		    }
 		} else {
-		    yagoSuperClasses.add(superClass);
+		    LOGGER.error("Expected a resource in the statement ("
+			    + classResource + ", rdfs:subClassOf, " + node
+			    + "). Ignoring this statement.");
 		}
 	    }
 
@@ -327,6 +396,11 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 		// add only the DOLCE classes and discard all others
 		types.addAll(dolceSuperClasses);
 		dolceClassFound = true;
+		if (LOGGER.isDebugEnabled()) {
+		    LOGGER.debug("Added super classes of "
+			    + classResource.getURI() + " --> "
+			    + Arrays.toString(dolceSuperClasses.toArray()));
+		}
 	    } else {
 		for (Resource r : yagoSuperClasses) {
 		    // If they have not been found before (and already have been
@@ -334,6 +408,11 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 		    if (!types.contains(r)) {
 			types.add(r);
 			queue.add(r);
+		    }
+		    if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Added super classes of "
+				+ classResource.getURI() + " --> "
+				+ Arrays.toString(yagoSuperClasses.toArray()));
 		    }
 		}
 	    }

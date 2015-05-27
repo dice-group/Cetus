@@ -2,7 +2,7 @@
 
 grammar CetusPatterns;
 
-sentence : WORD* ENTITY (COMMA (WORD|AND|OF|FORM_OF_BE|ADJECTIVE|DETERMINER|NUMBER|NOUN|VERB|FOREIGN|ADVERB)+ COMMA)? type_after_entity_pattern (WORD|POINT|COMMA|COLON)*
+sentence : (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB)* ENTITY (cc_word (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB)*)? (COMMA (WORD|cc_word|OF|FORM_OF_BE|ADJECTIVE|DETERMINER|NUMBER|NOUN|VERB|FOREIGN|ADVERB)+ COMMA)? type_after_entity_pattern (WORD|POINT|COMMA|COLON)*
 | WORD* type_in_front_of_entity ENTITY WORD*;
 
 type_after_entity_pattern : is_a_type_of_pattern
@@ -19,11 +19,14 @@ type_in_front_of_entity : type_with_dt (OF|COMMA|COLON)?;
 type_with_dt : DETERMINER? nr? type;
 type : (ADJECTIVE|VERB|ADVERB)* FOREIGN? NOUN+;
 nr : NUMBER;
+cc_word : AND|OR|CC;
 
 // Lexer rules
 
 ENTITY : '$ENTITY$';
 AND : 'and_and_CC';
+OR : 'or_or_CC';
+CC : ~[ \t\r\n]+ '_' ~[ \t\r\n]+ '_CC';
 OF : 'of_of_IN';
 FORM_OF_BE : ~[ \t\r\n]+ '_be_VB' ~[ \t\r\n]?;
 ADJECTIVE : ~[ \t\r\n]+ '_' ~[ \t\r\n]+ '_JJ' [RS]?;

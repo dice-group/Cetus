@@ -32,9 +32,9 @@ public class FoxBasedTypeSearcher implements CetusTypeSearcher {
 
     private static final String FOX_SERVICE = "http://139.18.2.164:4444/call/ner/entities";
 
-    private static final String PERSON_TYPE_URI = "http://ns.aksw.org/scms/annotations/PERSON";
-    private static final String LOCATION_TYPE_URI = "http://ns.aksw.org/scms/annotations/LOCATION";
-    private static final String ORGANIZATION_TYPE_URI = "http://ns.aksw.org/scms/annotations/ORGANIZATION";
+    private static final String PERSON_TYPE_URI = "scmsann:PERSON";
+    private static final String LOCATION_TYPE_URI = "scmsann:LOCATION";
+    private static final String ORGANIZATION_TYPE_URI = "scmsann:ORGANIZATION";
 
     private static final String DOLCE_PERSON_TYPE_URI = "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Person";
     private static final String DOLCE_LOCATION_TYPE_URI = "http://www.ontologydesignpatterns.org/ont/d0.owl#Location";
@@ -44,6 +44,9 @@ public class FoxBasedTypeSearcher implements CetusTypeSearcher {
     public TypedNamedEntity getAllTypes(Document document, NamedEntity ne, List<ExtendedTypedNamedEntity> surfaceForms) {
         TypedNamedEntity tne = new TypedNamedEntity(ne.getStartPosition(), ne.getLength(), ne.getUris(),
                 new HashSet<String>());
+        for(ExtendedTypedNamedEntity surfaceForm : surfaceForms) {
+            tne.getTypes().addAll(surfaceForm.getUris());
+        }
 
         try {
             // request FOX
