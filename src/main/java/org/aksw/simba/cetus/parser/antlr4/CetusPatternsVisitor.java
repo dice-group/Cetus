@@ -18,6 +18,12 @@ public interface CetusPatternsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSentence(CetusPatternsParser.SentenceContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CetusPatternsParser#entity_type_part}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEntity_type_part(CetusPatternsParser.Entity_type_partContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CetusPatternsParser#type_after_entity_pattern}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -35,6 +41,18 @@ public interface CetusPatternsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIs_a_type_of_pattern(CetusPatternsParser.Is_a_type_of_patternContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CetusPatternsParser#is_a_type_of_type_pattern}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIs_a_type_of_type_pattern(CetusPatternsParser.Is_a_type_of_type_patternContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CetusPatternsParser#is_a_type_of_both_types_pattern}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIs_a_type_of_both_types_pattern(CetusPatternsParser.Is_a_type_of_both_types_patternContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CetusPatternsParser#type_in_front_of_entity}.
 	 * @param ctx the parse tree

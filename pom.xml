@@ -14,7 +14,7 @@
 		<junit.version>4.11</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.2.10.RELEASE</spring.version>
-		<jena.version>2.12.1</jena.version>
+		<jena.version>2.13.0</jena.version>
 	</properties>
 
 	<repositories>
@@ -41,6 +41,17 @@
 			<groupId>org.aksw.jena-sparql-api</groupId>
 			<artifactId>jena-sparql-api-core</artifactId>
 			<version>2.10.0-22</version>
+		</dependency>
+		<!-- Jena -->
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-core</artifactId>
+			<version>${jena.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>${jena.version}</version>
 		</dependency>
 		<!-- CSV Filehandling -->
 		<dependency>

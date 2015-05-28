@@ -2,30 +2,44 @@
 
 grammar CetusPatterns;
 
-sentence : (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB)* ENTITY (cc_word (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB)*)? (COMMA (WORD|cc_word|OF|FORM_OF_BE|ADJECTIVE|DETERMINER|NUMBER|NOUN|VERB|FOREIGN|ADVERB)+ COMMA)? type_after_entity_pattern (WORD|POINT|COMMA|COLON)*
-| WORD* type_in_front_of_entity ENTITY WORD*;
+sentence : (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB)* entity_type_part (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|VERB|FOREIGN|ADVERB|COMMA|COLON)* POINT; 
 
-type_after_entity_pattern : is_a_type_of_pattern
+entity_type_part: ENTITY type_after_entity_pattern
+| ENTITY COMMA? type_after_entity_pattern
+| ENTITY COMMA (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|VERB)+ COMMA type_after_entity_pattern
+| ENTITY cc_word (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB)* type_after_entity_pattern
+| ENTITY cc_word (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB)* COMMA (WORD|cc_word|OF|FORM_OF_BE|ADJECTIVE|DETERMINER|NUMBER|NOUN|VERB|FOREIGN|ADVERB)+ COMMA type_after_entity_pattern
+| type_in_front_of_entity ENTITY (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB)*;
+
+type_after_entity_pattern : is_a_type_of_type_pattern
+| is_a_type_of_both_types_pattern
+| is_a_type_of_pattern
+| is_a_pattern cc_word is_a_pattern
 | is_a_pattern
-| type_with_dt ;
+| type_with_dt (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB)*;
 //| direct_following_type_pattern ;
 
 //direct_following_type_pattern : type_with_dt;
-is_a_pattern : COMMA? FORM_OF_BE type_with_dt (((COMMA? AND) | COMMA) type_with_dt)*;
-is_a_type_of_pattern : COMMA? FORM_OF_BE type_with_dt OF type_with_dt;
+is_a_pattern : FORM_OF_BE ADVERB* type_with_dt ((AND|COMMA) type_with_dt)*;
+is_a_type_of_pattern : FORM_OF_BE ADVERB* nr? OF type_with_dt;
+is_a_type_of_type_pattern : FORM_OF_BE ADVERB* type_with_dt OF type_with_dt;
+is_a_type_of_both_types_pattern : FORM_OF_BE ADVERB* type_with_dt OF BOTH type_with_dt AND type_with_dt;
 
 type_in_front_of_entity : type_with_dt (OF|COMMA|COLON)?;
 
 type_with_dt : DETERMINER? nr? type;
-type : (ADJECTIVE|VERB|ADVERB)* FOREIGN? NOUN+;
+type : (ADJECTIVE|VERB|ADVERB|CD)* FOREIGN? NOUN+ (ADJECTIVE NOUN)+
+| (ADJECTIVE|VERB|ADVERB|CD)* FOREIGN? NOUN+
+| ADJECTIVE;
 nr : NUMBER;
-cc_word : AND|OR|CC;
+cc_word : AND|OR|BOTH|CC;
 
 // Lexer rules
 
 ENTITY : '$ENTITY$';
 AND : 'and_and_CC';
 OR : 'or_or_CC';
+BOTH : 'both_both_CC';
 CC : ~[ \t\r\n]+ '_' ~[ \t\r\n]+ '_CC';
 OF : 'of_of_IN';
 FORM_OF_BE : ~[ \t\r\n]+ '_be_VB' ~[ \t\r\n]?;

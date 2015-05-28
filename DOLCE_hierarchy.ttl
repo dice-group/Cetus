@@ -1,0 +1,832 @@
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#FunctionalArea>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "functional area"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Community>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "community"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#CollectiveAgent> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Personification>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "personification"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialAgent> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Set>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "set"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#FormalEntity> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "social object"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object> .
+
+<http://www.ontologydesignpatterns.org/ont/d0.owl#Characteristic>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "characteristic"@en .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Parameter>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "parameter"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/d0.owl#Characteristic> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationRealization>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "information realization"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationEntity> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Norm>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "norm"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TypeCollection>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "type collection"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#CollectionRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "collection role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#QualitativeRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "qualitative role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/d0.owl#Activity>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "activity"@en .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Workflow>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "workflow"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Plan> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#LegalPossessionRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "legal possession role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#SocialFunction> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalBody>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "physical body"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalArtifact>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "physical artifact"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Action>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "action"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/d0.owl#Activity> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "region"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/d0.owl#Characteristic> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Abstract> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "situation"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/CollectionsLite.owl#GeneticCollection>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "genetic collection"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/CollectionsLite.owl#AgentCollection> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Person>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "person"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#AgentRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "agent role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#GeographicalFeature>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#SpatialFeature> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#ElementaryRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "elementary role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalPlace>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "physical place"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> , <http://www.ontologydesignpatterns.org/ont/d0.owl#Location> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#Department>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "department"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#FunctionalArea> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#GeographicalRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#LocativeRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "locative role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Right>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "right"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/ontopic.owl#TopicAssignment>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "topic assignment"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/IOLite.owl#LinguisticAct> .
+
+<http://www.ontologydesignpatterns.org/ont/d0.owl#Event>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "event"@en , "natural event"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.w3.org/2002/07/owl#Thing> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#FunctionalSubstance>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "functional substance"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Substance> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "object"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#SpatialFeature>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "spatial feature"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#DependentPart> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/CollectionsLite.owl#InformationCollection>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "information collection"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#ChemicalObject>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "chemical object"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalBody> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "collection"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#NaturalPerson>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "natural person"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalAgent> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Person> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/ontopic.owl#TopicSignature>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "topic signature"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/ontopic.owl#Topic> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/ontopic.owl#Topic>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "topic"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "agent"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Narrative>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "narrative"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#ConceptualRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "conceptual role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialAgent>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "social agent"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "process"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/IOLite.owl#LinguisticAct>
+      a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Goal>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "goal"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#DependentPlace>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "dependent place"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalPlace> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#EventType>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "event type"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/d0.owl#Event> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#PoliticalGeographicObject>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "designed artifact"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalArtifact> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#SymmetricRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "symmetric role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Transition>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "transition"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Diagnosis>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "diagnosis"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialRelation>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "social relation"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Relation> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationEntity>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#UnitOfMeasure>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "unit of measure"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Parameter> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "event"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> , <http://www.ontologydesignpatterns.org/ont/d0.owl#Event> .
+
+<http://www.ontologydesignpatterns.org/ont/lmm/LMM_L1.owl#Expression>
+      a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Abstract>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "abstract"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Organism>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "organism"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalAgent> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#BiologicalObject> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "place"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject> , <http://www.ontologydesignpatterns.org/ont/d0.owl#Location> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#Aggregate>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "aggregate"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#TopologicalWhole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "topological whole"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Classification>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "classification"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#CommercialRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "commercial role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#SocialFunction> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#SemioticRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "semiotic role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "concept"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Design>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "design"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/CollectionsLite.owl#Taxon>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "taxon"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TypeCollection> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#WorkflowExecution>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "workflow execution"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PlanExecution> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalAgent>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "physical agent"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#DependentPart>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "dependent part"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/ontopic.owl#SubjectSpace>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "subject space"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#LocalConcept>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "local concept"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#SocialFunction>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "social function"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Conceptualization.owl#InternalRepresentation>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "internal representation"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/d0.owl#CognitiveEntity> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationRealization> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "entity"@en .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#FormalEntity>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "formal entity"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Abstract> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Pattern>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "pattern"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Relation> .
+
+<http://www.w3.org/2002/07/owl#Thing>
+      a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Plan>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "plan"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedSubstance>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#FunctionalSubstance> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Method>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "method"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/CollectionsLite.owl#AgentCollection>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "agent collection"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Project>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "project"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Plan> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Theory>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "theory"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "time interval"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "physical object"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collective>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "collective"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Substance>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "substance"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalBody> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/ontopic.owl#SubjectDirectory>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "subject directory"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/IOLite.owl#KOS> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Amount>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "amount"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region> .
+
+<http://www.ontologydesignpatterns.org/ont/d0.owl#CognitiveEntity>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "cognitive entity"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.w3.org/2002/07/owl#Thing> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalAttribute>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "physical attribute"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SpaceRegion>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "space region"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region> , <http://www.ontologydesignpatterns.org/ont/d0.owl#Location> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Group>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "group"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#CollectiveAgent> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#BiologicalObject>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "biological object"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalBody> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Organization>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "organization"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialAgent> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "quality"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> , <http://www.ontologydesignpatterns.org/ont/d0.owl#Characteristic> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/IOLite.owl#KOS>
+      a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/ontopic.owl#Subject>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "subject"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/ontopic.owl#Topic> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Relation>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "relation"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#CausalRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "causal role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/d0.owl#Location>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "location"@en .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SpatioTemporalRegion>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Configuration>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "configuration"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection> .
+
+<http://www.ontologydesignpatterns.org/ont/d0.owl#System>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "system"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.w3.org/2002/07/owl#Thing> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "task"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/d0.owl#Activity> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#EventType> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#Status>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "status"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#SocialFunction> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialPerson>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "social person"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialAgent> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Person> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/IOLite.owl#Term>
+      a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#SubstanceRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "substance role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PlanExecution>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "plan execution"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Roles.owl#InterpersonalRole>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "interpersonal role"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Contract>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "contract"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "information object"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationEntity> .
+
+<http://www.ontologydesignpatterns.org/ont/d0.owl#Topic>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "topic"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.w3.org/2002/07/owl#Thing> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "description"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#CollectiveAgent>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "collective agent"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialAgent> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/ontopic.owl#TopicSpace>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "topic space"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObjectAttribute>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "social attribute"@en ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region> .
+
+<http://www.ontologydesignpatterns.org/ont/dul/Supplements.owl#GeographicalObject>
+      a       <http://www.w3.org/2002/07/owl#Class> ;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalPlace> .

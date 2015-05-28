@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import edu.stanford.nlp.pipeline.DeterministicCorefAnnotator;
 
+@Deprecated
 public class PronounReplacingSupplierDecorator extends AbstractDocumentSupplierDecorator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PronounReplacingSupplierDecorator.class);
@@ -42,6 +43,7 @@ public class PronounReplacingSupplierDecorator extends AbstractDocumentSupplierD
         return new PronounReplacingSupplierDecorator(documentSource, annotator);
     }
 
+    @SuppressWarnings("unused")
     private DeterministicCorefAnnotator annotator;
 
     protected PronounReplacingSupplierDecorator(DocumentSupplier documentSource, DeterministicCorefAnnotator annotator) {
