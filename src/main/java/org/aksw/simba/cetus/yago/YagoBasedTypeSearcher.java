@@ -321,10 +321,14 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 
     private void filterMatchingTypes(String label, List<Resource> matchingTypes) {
 	BitSet matchingDirectly = new BitSet(matchingTypes.size());
+	BitSet matchingDolceTypes = new BitSet(matchingTypes.size());
 	int id = 0;
 	for (Resource matchingType : matchingTypes) {
 	    if (isMatchingDirectly(matchingType, label)) {
 		matchingDirectly.set(id);
+		if (dolceClassModel.containsResource(matchingType)) {
+		    matchingDolceTypes.set(id);
+		}
 	    }
 	    ++id;
 	}
@@ -333,9 +337,11 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 	}
 	List<Resource> elementsToRemove = new ArrayList<Resource>(
 		matchingTypes.size());
+	BitSet goodTypes = matchingDolceTypes.isEmpty() ? matchingDirectly
+		: matchingDolceTypes;
 	id = 0;
 	for (Resource matchingType : matchingTypes) {
-	    if (!matchingDirectly.get(id)) {
+	    if (!goodTypes.get(id)) {
 		elementsToRemove.add(matchingType);
 	    }
 	    ++id;
@@ -345,7 +351,7 @@ public class YagoBasedTypeSearcher implements CetusTypeSearcher {
 
     private boolean isMatchingDirectly(Resource matchingType, String label) {
 	String typeName = matchingType.getLocalName();
-	if(typeName.startsWith("wordnet_")) {
+	if (typeName.startsWith("wordnet_")) {
 	    typeName = typeName.substring(8);
 	}
 	StringBuilder builder = new StringBuilder();
