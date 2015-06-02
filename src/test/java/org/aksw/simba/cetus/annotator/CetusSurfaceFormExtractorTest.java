@@ -125,24 +125,37 @@ public class CetusSurfaceFormExtractorTest {
 						.asList(RDFS.Class.getURI())),
 					"component"))) });
 	testConfigs
-	.add(new Object[] {
-		new DocumentImpl(
-			"An Abbe refractometer is a bench-top device for the high-precision measurement of an index of refraction.",
-			Arrays.asList((Marking) new NamedEntity(3, 18,
-				"http://dbpedia.org/resource/Abbe_refractometer"))),
-		new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
-			new ExtendedTypedNamedEntity(27, 16,
-				CetusSurfaceFormExtractor.BASE_URI
-					+ "Bench-topDevice",
-				new HashSet<String>(Arrays
-					.asList(RDFS.Class.getURI())),
-				"bench-top device"),
-			new ExtendedTypedNamedEntity(37, 6,
-				CetusSurfaceFormExtractor.BASE_URI
-					+ "Device",
-				new HashSet<String>(Arrays
-					.asList(RDFS.Class.getURI())),
-				"device"))) });
+		.add(new Object[] {
+			new DocumentImpl(
+				"An Abbe refractometer is a bench-top device for the high-precision measurement of an index of refraction.",
+				Arrays.asList((Marking) new NamedEntity(3, 18,
+					"http://dbpedia.org/resource/Abbe_refractometer"))),
+			new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
+				new ExtendedTypedNamedEntity(27, 16,
+					CetusSurfaceFormExtractor.BASE_URI
+						+ "Bench-topDevice",
+					new HashSet<String>(Arrays
+						.asList(RDFS.Class.getURI())),
+					"bench-top device"),
+				new ExtendedTypedNamedEntity(37, 6,
+					CetusSurfaceFormExtractor.BASE_URI
+						+ "Device",
+					new HashSet<String>(Arrays
+						.asList(RDFS.Class.getURI())),
+					"device"))) });
+	testConfigs
+		.add(new Object[] {
+			new DocumentImpl(
+				"Štvrtok is a village in Trencín District in the Trencín Region of north-western Slovakia.",
+				Arrays.asList((Marking) new NamedEntity(0, 7,
+					"http://dbpedia.org/resource/Štvrtok"))),
+			new HashSet<ExtendedTypedNamedEntity>(Arrays
+				.asList(new ExtendedTypedNamedEntity(13, 7,
+					CetusSurfaceFormExtractor.BASE_URI
+						+ "Village",
+					new HashSet<String>(Arrays
+						.asList(RDFS.Class.getURI())),
+					"village"))) });
 	return testConfigs;
     }
 

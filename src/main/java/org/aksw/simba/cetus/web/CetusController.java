@@ -65,7 +65,7 @@ public class CetusController {
         foxBasedAnnotator = new CetusAnnotator(extractor, foxBasedTypeSearcher);
     }
 
-    @RequestMapping("/yago")
+    @RequestMapping(value = "/yago", produces = "application/x-turtle;charset=UTF-8")
     public @ResponseBody
     String yago(@RequestBody String data) {
         Document document = null;
@@ -75,7 +75,9 @@ public class CetusController {
             LOGGER.error("Exception while parsing NIF string.", e);
             throw new IllegalArgumentException("Couldn't parse the given NIF document.");
         }
+        LOGGER.info("Request: " + document.toString());
         document = yagoBasedAnnotator.performTypeExtraction(document);
+        LOGGER.info("Response: " + document.toString());
         return creator.getDocumentAsNIFString(document);
     }
 

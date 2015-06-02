@@ -138,6 +138,21 @@ public class YagoBasedCetusAnnotatorTest {
 					"component"))),
 			new HashSet<String>(
 				Arrays.asList("http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject")) });
+	testConfigs
+	.add(new Object[] {
+		new DocumentImpl(
+			"Štvrtok is a village in Trencín District in the Trencín Region of north-western Slovakia.",
+			Arrays.asList((Marking) new NamedEntity(0, 7,
+				"http://dbpedia.org/resource/Štvrtok"))),
+		new HashSet<ExtendedTypedNamedEntity>(Arrays.asList(
+			new ExtendedTypedNamedEntity(13, 7,
+				CetusSurfaceFormExtractor.BASE_URI
+					+ "Village",
+				new HashSet<String>(Arrays
+					.asList(RDFS.Class.getURI())),
+				"village"))),
+		new HashSet<String>(
+			Arrays.asList("http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Location")) });
 
 	return testConfigs;
     }
