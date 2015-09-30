@@ -40,7 +40,26 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.2.10.RELEASE</spring.version>
 		<jena.version>2.13.0</jena.version>
+		<developer.name>Michael Röder</developer.name>
+		<developer.mail>roeder@informatik.uni-leipzig.de</developer.mail>
 	</properties>
+
+	<!-- LICENSE -->
+	<licenses>
+		<license>
+			<name>LGPL 3.0</name>
+			<url>http://www.gnu.org/licenses/lgpl-3.0.txt</url>
+		</license>
+	</licenses>
+
+	<!-- DEVELOPERS -->
+	<developers>
+		<developer>
+			<id>m.roeder</id>
+			<name>${developer.name}</name>
+			<email>${developer.mail}</email>
+		</developer>
+	</developers>
 
 	<repositories>
 		<!-- Let's use a local repository for the local libraries of this project -->
