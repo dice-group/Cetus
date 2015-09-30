@@ -223,7 +223,7 @@
 					<header>com/mycila/maven/plugin/license/templates/LGPL-3.txt</header>
 					<properties>
 						<owner>Agile Knowledge Engineering and Semantic Web (AKSW)
-							(usbeck@informatik.uni-leipzig.de)</owner>
+							(roeder@informatik.uni-leipzig.de)</owner>
 					</properties>
 					<excludes>
 						<exclude>**/README</exclude>
