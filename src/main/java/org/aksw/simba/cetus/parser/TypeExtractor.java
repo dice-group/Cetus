@@ -30,6 +30,36 @@ public class TypeExtractor {
     public static final String ENTITY_MARKING = "$ENTITY$";
 
     public List<String> extractTypeStrings(String sentence) {
+        int pos = sentence.indexOf(ENTITY_MARKING);
+        if (pos < 0) {
+            return new ArrayList<String>(0);
+        }
+        String subSentence = sentence.substring(pos);
+        List<String> types = extractStrings(subSentence);
+        if (pos > 0) {
+            subSentence = sentence.substring(0, pos + ENTITY_MARKING.length());
+            List<String> types2 = extractStrings(subSentence);
+            if (types == null) {
+                if (types2 == null) {
+                    return new ArrayList<String>(0);
+                } else {
+                    return types2;
+                }
+            } else {
+                if (types2 != null) {
+                    types.addAll(types2);
+                }
+                return types;
+            }
+        }
+        if (types == null) {
+            return new ArrayList<String>(0);
+        } else {
+            return types;
+        }
+    }
+
+    protected List<String> extractStrings(String sentence) {
         ANTLRInputStream is = new ANTLRInputStream(sentence);
         CetusPatternsLexer lexer = new CetusPatternsLexer(is);
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
@@ -39,9 +69,13 @@ public class TypeExtractor {
         SentenceContext context = parser.sentence();
         TypeStringCreatingVisitor visitor = new TypeStringCreatingVisitor();
         if (context != null) {
-            return visitor.visit(context);
-        } else {
-            return new ArrayList<String>(0);
+            List<String> result = visitor.visit(context);
+            if (result != null) {
+                // sometimes an empty string is added. We don't want to have it
+                result.remove("");
+                return result;
+            }
         }
+        return new ArrayList<String>(0);
     }
 }

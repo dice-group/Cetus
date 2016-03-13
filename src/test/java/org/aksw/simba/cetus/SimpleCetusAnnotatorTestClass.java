@@ -36,9 +36,9 @@ public class SimpleCetusAnnotatorTestClass {
 		YagoBasedTypeSearcher.create());
 	Document document = annotator
 		.performTypeExtraction(new DocumentImpl(
-			"Avex Group Holdings Inc., listed in the Tokyo Stock Exchange as 7860 and abbreviated as AGHD, is the holding company for a group of entertainment-related subsidiaries based in Japan.",
-			Arrays.asList((Marking) new NamedEntity(0, 24,
-				"http://dbpedia.org/resource/AVEX"))));
+			"Born on December, 1629 and died on 19 August 1686, Jean-Baptiste Cotelier or Cotelerius was a Patristic scholar and Catholic theologian.",
+			Arrays.asList((Marking) new NamedEntity(51, 22,
+				"http://dbpedia.org/resource/Jean-Baptiste_Cotelier"))));
 	System.out.println(document);
     }
 }
