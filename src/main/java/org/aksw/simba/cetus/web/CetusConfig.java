@@ -42,4 +42,5 @@ public class CetusConfig {
     public static FoxBasedTypeSearcher createFoxBasedTypeSearcher() {
         return new FoxBasedTypeSearcher();
     }
+
 }

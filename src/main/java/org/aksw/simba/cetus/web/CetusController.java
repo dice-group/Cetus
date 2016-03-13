@@ -28,10 +28,12 @@ import org.aksw.simba.cetus.yago.YagoBasedTypeSearcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CetusController {
@@ -59,9 +61,8 @@ public class CetusController {
         foxBasedAnnotator = new CetusAnnotator(extractor, foxBasedTypeSearcher);
     }
 
-    @RequestMapping(value = "/yago", produces = "application/x-turtle;charset=UTF-8")
-    public @ResponseBody
-    String yago(@RequestBody String data) {
+    @RequestMapping(value = "/yago", produces = "application/x-turtle;charset=utf-8")
+    public ResponseEntity<String> yago(@RequestBody String data) {
         Document document = null;
         try {
             document = parser.getDocumentFromNIFString(data);
@@ -72,12 +73,15 @@ public class CetusController {
         LOGGER.info("Request: " + document.toString());
         document = yagoBasedAnnotator.performTypeExtraction(document);
         LOGGER.info("Response: " + document.toString());
-        return creator.getDocumentAsNIFString(document);
+        // Add a header that clearly says, that we produce an utf-8 String.
+        // Otherwise Spring might encode the response in the wrong way...
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.add("Content-Type", "application/x-turtle;charset=utf-8");
+        return new ResponseEntity<String>(creator.getDocumentAsNIFString(document), responseHeaders, HttpStatus.OK);
     }
 
     @RequestMapping("/fox")
-    public @ResponseBody
-    String fox(@RequestBody String data) {
+    public ResponseEntity<String> fox(@RequestBody String data) {
         Document document = null;
         try {
             document = parser.getDocumentFromNIFString(data);
@@ -86,7 +90,11 @@ public class CetusController {
             throw new IllegalArgumentException("Couldn't parse the given NIF document.");
         }
         document = foxBasedAnnotator.performTypeExtraction(document);
-        return creator.getDocumentAsNIFString(document);
+        // Add a header that clearly says, that we produce an utf-8 String.
+        // Otherwise Spring might encode the response in the wrong way...
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.add("Content-Type", "application/x-turtle;charset=utf-8");
+        return new ResponseEntity<String>(creator.getDocumentAsNIFString(document), responseHeaders, HttpStatus.OK);
     }
 
 }
