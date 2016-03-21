@@ -9,8 +9,8 @@ entity_type_part: ENTITY COMMA? type_after_entity_pattern COMMA? (WORD|cc_word|O
 | ENTITY COMMA (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|VERB|past_verb)+ COMMA type_after_entity_pattern COMMA? (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB|past_verb)*
 | ENTITY cc_word (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|past_verb)* type_after_entity_pattern COMMA? (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB|past_verb)*
 | ENTITY cc_word (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|past_verb)* COMMA (WORD|cc_word|OF|FORM_OF_BE|ADJECTIVE|DETERMINER|NUMBER|NOUN|VERB|FOREIGN|ADVERB|past_verb)+ COMMA type_after_entity_pattern COMMA? (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB|past_verb)*
-| ENTITY COMMA? type_after_entity_pattern (COMMA (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB|past_verb)*)+
-| ENTITY (COMMA? (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB|past_verb)*)+ COMMA? type_after_entity_pattern COMMA? (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB|past_verb)*;
+| ENTITY COMMA? type_after_entity_pattern (COMMA (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB|past_verb)*)+;
+//| ENTITY (COMMA? (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB|past_verb)*)+ COMMA? type_after_entity_pattern COMMA? (WORD|cc_word|OF|ADJECTIVE|DETERMINER|NUMBER|NOUN|FOREIGN|ADVERB|FORM_OF_BE|VERB|past_verb)*;
 
 type_after_entity_pattern : is_a_type_of_type_pattern
 | is_a_type_of_both_types_pattern
@@ -21,7 +21,7 @@ type_after_entity_pattern : is_a_type_of_type_pattern
 //| direct_following_type_pattern ;
 
 //direct_following_type_pattern : type_with_dt;
-is_a_pattern : FORM_OF_BE ADVERB* type_with_dt (((COMMA AND)|AND|COMMA) type_with_dt)*;
+is_a_pattern : FORM_OF_BE ADVERB* type_with_dt (((COMMA AND)|(COMMA OR)|AND|OR|COMMA) type_with_dt)*;
 is_a_type_of_pattern : FORM_OF_BE ADVERB* nr? OF type_with_dt;
 is_a_type_of_type_pattern : FORM_OF_BE ADVERB* type_with_dt OF type_with_dt;
 is_a_type_of_both_types_pattern : FORM_OF_BE ADVERB* type_with_dt OF BOTH type_with_dt AND type_with_dt;

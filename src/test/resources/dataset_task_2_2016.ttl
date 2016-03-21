@@ -7,7 +7,7 @@
 @prefix nif:   <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix dul:   <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
 @prefix dbpedia: <http://dbpedia.org/resource/> .
-@prefix d0:    <http://ontologydesignpatterns.org/ont/wikipedia/d0.owl#> .
+@prefix d0:    <http://www.ontologydesignpatterns.org/ont/wikipedia/d0.owl#> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
 <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-151#char=14,36>
