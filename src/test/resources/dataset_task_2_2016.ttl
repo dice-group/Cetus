@@ -150,11 +150,11 @@ dbpedia:Danderyds_sjukhus_metro_station
         a           oke:Station , oke:MetroStation ;
         rdfs:label  "Danderyds sjukhus"@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-148#char=28,53>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-148#char=35,60>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "color photography process"@en ;
-        nif:beginIndex        "28"^^xsd:nonNegativeInteger ;
-        nif:endIndex          "53"^^xsd:nonNegativeInteger ;
+        nif:beginIndex        "35"^^xsd:nonNegativeInteger ;
+        nif:endIndex          "60"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-148#char=0,256> ;
         itsrdf:taIdentRef     oke:ColorPhotographyProcess .
 
@@ -1009,11 +1009,11 @@ oke:Municipality  a      owl:Class ;
 dbpedia:Munkebo  a  oke:Town ;
         rdfs:label  "Munkebo"@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-150#char=29,48>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-150#char=29,49>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "main railway station"@en ;
         nif:beginIndex        "29"^^xsd:nonNegativeInteger ;
-        nif:endIndex          "48"^^xsd:nonNegativeInteger ;
+        nif:endIndex          "49"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-150#char=0,312> ;
         itsrdf:taIdentRef     oke:MainRailwayStation .
 
@@ -1367,7 +1367,7 @@ dbpedia:Alvorninha  a  oke:CivilParish , oke:Parish ;
         nif:beginIndex  "0"^^xsd:int ;
         nif:endIndex    "79"^^xsd:int ;
         nif:isString    "Alain de Lille, theologian and poet, was born in Lille, some years before 1128."@en .
-
+		
 <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-158#char=28,36>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "painting"@en ;
@@ -1914,11 +1914,11 @@ oke:Process  a           owl:Class ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-136#char=0,163> ;
         itsrdf:taIdentRef     oke:Method .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=35,56>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=35,55>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "comic book character "@en ;
+        nif:anchorOf          "comic book character"@en ;
         nif:beginIndex        "35"^^xsd:int ;
-        nif:endIndex          "56"^^xsd:int ;
+        nif:endIndex          "55"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=0,73> ;
         itsrdf:taIdentRef     oke:ComicBookCharacter .
 
@@ -1954,11 +1954,11 @@ oke:MetroStation  a      owl:Class ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-152#char=0,230> ;
         itsrdf:taIdentRef     dbpedia:Science_fiction .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-150#char=42,48>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-150#char=42,49>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "station"@en ;
         nif:beginIndex        "42"^^xsd:nonNegativeInteger ;
-        nif:endIndex          "48"^^xsd:nonNegativeInteger ;
+        nif:endIndex          "49"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-150#char=0,312> ;
         itsrdf:taIdentRef     oke:Station .
 
@@ -2412,11 +2412,11 @@ oke:TropicalCyclon  a    owl:Class ;
         rdfs:label       "tropical cyclon"@en ;
         rdfs:subClassOf  oke:Cyclon , d0:Event .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-32#char=56,59>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-32#char=31,35>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "som"@en ;
-        nif:beginIndex        "56"^^xsd:int ;
-        nif:endIndex          "59"^^xsd:int ;
+        nif:anchorOf          "poet"@en ; 
+        nif:beginIndex        "31"^^xsd:int ;
+        nif:endIndex          "35"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-32#char=0,79> ;
         itsrdf:taIdentRef     oke:Poet .
 
@@ -2543,11 +2543,11 @@ dbpedia:5th_Royal_Irish_Lancers
         a           oke:CavalryRegiment , oke:Regiment ;
         rdfs:label  "5th Royal Irish Lancers"@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-75#char=36,44>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-75#char=36,43>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "château "@en ;
+        nif:anchorOf          "château"@en ;
         nif:beginIndex        "36"^^xsd:int ;
-        nif:endIndex          "44"^^xsd:int ;
+        nif:endIndex          "43"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-75#char=0,88> ;
         itsrdf:taIdentRef     oke:Chateau .
 
@@ -4103,11 +4103,11 @@ oke:Manufacturer  a      owl:Class ;
         rdfs:label       "manufacturer"@en ;
         rdfs:subClassOf  dul:Organization .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-192#char=41,61>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-192#char=47,67>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "international crises"@en ;
-        nif:beginIndex        "41"^^xsd:nonNegativeInteger ;
-        nif:endIndex          "61"^^xsd:nonNegativeInteger ;
+        nif:beginIndex        "47"^^xsd:nonNegativeInteger ;
+        nif:endIndex          "67"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-192#char=0,275> ;
         itsrdf:taIdentRef     oke:InternationalCrises .
 
@@ -4299,11 +4299,11 @@ oke:VolleyballPlayer  a  owl:Class ;
         nif:endIndex    "82"^^xsd:int ;
         nif:isString    "Ahmose I was a pharaoh of ancient Egypt and the founder of the Eighteenth dynasty."@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-75#char=29,44>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-75#char=29,43>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "French château "@en ;
+        nif:anchorOf          "French château"@en ;
         nif:beginIndex        "29"^^xsd:int ;
-        nif:endIndex          "44"^^xsd:int ;
+        nif:endIndex          "43"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-75#char=0,88> ;
         itsrdf:taIdentRef     oke:FrenchChateau .
 
@@ -4438,11 +4438,11 @@ dbpedia:Avinyonet_de_Puigventós
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-96#char=0,137> ;
         itsrdf:taIdentRef     oke:ThemeLand .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-150#char=34,48>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-150#char=34,49>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "railway station"@en ;
         nif:beginIndex        "34"^^xsd:nonNegativeInteger ;
-        nif:endIndex          "48"^^xsd:nonNegativeInteger ;
+        nif:endIndex          "49"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-150#char=0,312> ;
         itsrdf:taIdentRef     oke:RailwayStation .
 
@@ -4605,13 +4605,13 @@ dbpedia:Gimli_Glider  a  oke:Nickname ;
         a               nif:Context , nif:RFC5147String , nif:String ;
         nif:beginIndex  "0"^^xsd:int ;
         nif:endIndex    "152"^^xsd:int ;
-        nif:isString    "Anne-Sofie Østvedt, (later married Strømnæs), (2 January 1920 - 16 November 2009)  was one of the leaders of the Norwegian intelligence organisation XU."@en .
+        nif:isString    "Anne-Sofie Østvedt, (later married Strømnæs), (2 January 1920 - 16 November 2009) was one of the leaders of the Norwegian intelligence organisation XU."@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-41#char=31,37>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-41#char=30,36>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "inger "@en ;
-        nif:beginIndex        "31"^^xsd:int ;
-        nif:endIndex          "37"^^xsd:int ;
+        nif:anchorOf          "singer"@en ;
+        nif:beginIndex        "30"^^xsd:int ;
+        nif:endIndex          "36"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-41#char=0,116> ;
         itsrdf:taIdentRef     oke:Singer .
 
@@ -4694,11 +4694,11 @@ oke:CivilParish  a       owl:Class ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-165#char=0,116> ;
         itsrdf:taIdentRef     oke:PoliticalEvent .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=41,56>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=41,55>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "book character "@en ;
         nif:beginIndex        "41"^^xsd:int ;
-        nif:endIndex          "56"^^xsd:int ;
+        nif:endIndex          "55"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=0,73> ;
         itsrdf:taIdentRef     oke:BookCharacter .
 
@@ -4783,10 +4783,10 @@ oke:RaceTrack  a         owl:Class ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-92#char=0,75> ;
         itsrdf:taIdentRef     oke:Artist .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-188#char=15,19>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-188#char=14,19>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "water"@en ;
-        nif:beginIndex        "15"^^xsd:nonNegativeInteger ;
+        nif:beginIndex        "14"^^xsd:nonNegativeInteger ;
         nif:endIndex          "19"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-188#char=0,216> ;
         itsrdf:taIdentRef     oke:Water .
@@ -5040,11 +5040,11 @@ oke:QuantitativeCapacity
         nif:endIndex    "386"^^xsd:nonNegativeInteger ;
         nif:isString    "The United States Court of Appeals for the Tenth Circuit (in case citations, 10th Cir.) is a federal court with appellate jurisdiction over the district courts in the following districts: District of Colorado, District of Kansas, District of New Mexico, Eastern District of Oklahoma, Northern District of Oklahoma, Western District of Oklahoma, District of Utah and District of Wyoming."@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-192#char=35,61>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-192#char=41,67>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "major international crises"@en ;
-        nif:beginIndex        "35"^^xsd:nonNegativeInteger ;
-        nif:endIndex          "61"^^xsd:nonNegativeInteger ;
+        nif:beginIndex        "41"^^xsd:nonNegativeInteger ;
+        nif:endIndex          "67"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-192#char=0,275> ;
         itsrdf:taIdentRef     oke:MajorInternationalCrises .
 
@@ -5062,11 +5062,11 @@ oke:QuantitativeCapacity
         nif:endIndex    "280"^^xsd:int ;
         nif:isString    "Year 23 BC was either a common year starting on Saturday or Sunday or a leap year starting on Friday, Saturday or Sunday of the Julian calendar (the sources differ, see leap year error for further information) and a common year starting on Friday of the Proleptic Julian calendar."@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-44#char=71,78>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-44#char=97,104>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "mber 20"@en ;
-        nif:beginIndex        "71"^^xsd:int ;
-        nif:endIndex          "78"^^xsd:int ;
+        nif:anchorOf          "leaders"@en ;
+        nif:beginIndex        "97"^^xsd:int ;
+        nif:endIndex          "104"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-44#char=0,152> ;
         itsrdf:taIdentRef     oke:Leader .
 
@@ -5100,11 +5100,11 @@ oke:Pharaoh  a           owl:Class ;
         rdfs:label       "pharaoh"@en ;
         rdfs:subClassOf  dul:Person .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=16,56>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=16,55>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "Italian humoristic comic book character "@en ;
+        nif:anchorOf          "Italian humoristic comic book character"@en ;
         nif:beginIndex        "16"^^xsd:int ;
-        nif:endIndex          "56"^^xsd:int ;
+        nif:endIndex          "55"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=0,73> ;
         itsrdf:taIdentRef     oke:ItalianHumoristicComicBookCharacter .
 
@@ -5703,7 +5703,7 @@ oke:Album  a             owl:Class ;
         nif:isString    "The Southern Intercollegiate Athletic Conference is a College athletic conference consisting of historically black colleges and universities located in the southern United States."@en .
 
 oke:FrenchChateau  a     owl:Class ;
-        rdfs:label       "French château "@en ;
+        rdfs:label       "French château"@en ;
         rdfs:subClassOf  dul:PhysicalObject .
 
 <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-86#char=0,19>
@@ -5730,11 +5730,11 @@ oke:FrenchChateau  a     owl:Class ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-147#char=0,136> ;
         itsrdf:taIdentRef     dbpedia:Jean-Baptiste_Cotelier .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=46,56>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=46,55>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "character "@en ;
+        nif:anchorOf          "character"@en ;
         nif:beginIndex        "46"^^xsd:int ;
-        nif:endIndex          "56"^^xsd:int ;
+        nif:endIndex          "55"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=0,73> ;
         itsrdf:taIdentRef     oke:Character .
 
@@ -5746,11 +5746,11 @@ oke:FrenchChateau  a     owl:Class ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-134#char=0,213> ;
         itsrdf:taIdentRef     oke:SociallyRecognizedUnion .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-192#char=55,61>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-192#char=61,67>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "crises"@en ;
-        nif:beginIndex        "55"^^xsd:nonNegativeInteger ;
-        nif:endIndex          "61"^^xsd:nonNegativeInteger ;
+        nif:beginIndex        "61"^^xsd:nonNegativeInteger ;
+        nif:endIndex          "67"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-192#char=0,275> ;
         itsrdf:taIdentRef     oke:Crises .
 
@@ -5910,11 +5910,11 @@ oke:Decade  a            owl:Class ;
 dbpedia:Adalgis  a  oke:King ;
         rdfs:label  "Adelchis"@en , "Adalgis"@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-148#char=46,53>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-148#char=53,60>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "process"@en ;
-        nif:beginIndex        "46"^^xsd:nonNegativeInteger ;
-        nif:endIndex          "53"^^xsd:nonNegativeInteger ;
+        nif:beginIndex        "53"^^xsd:nonNegativeInteger ;
+        nif:endIndex          "60"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-148#char=0,256> ;
         itsrdf:taIdentRef     oke:Process .
 
@@ -6297,11 +6297,11 @@ oke:Prize  a             owl:Class ;
         rdfs:label       "prize"@en ;
         rdfs:subClassOf  dul:Description .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=24,56>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=24,55>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "humoristic comic book character "@en ;
+        nif:anchorOf          "humoristic comic book character"@en ;
         nif:beginIndex        "24"^^xsd:int ;
-        nif:endIndex          "56"^^xsd:int ;
+        nif:endIndex          "55"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-71#char=0,73> ;
         itsrdf:taIdentRef     oke:HumoristicComicBookCharacter .
 
@@ -6520,11 +6520,11 @@ dbpedia:8869_Olausgutho
 dbpedia:Bromius  a  oke:Epithet ;
         rdfs:label  "Bromius"@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-32#char=41,51>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-32#char=16,26>
         a                     nif:RFC5147String , nif:String ;
-        nif:anchorOf          "born in Li"@en ;
-        nif:beginIndex        "41"^^xsd:int ;
-        nif:endIndex          "51"^^xsd:int ;
+        nif:anchorOf          "theologian"@en ;
+        nif:beginIndex        "16"^^xsd:int ;
+        nif:endIndex          "26"^^xsd:int ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-32#char=0,79> ;
         itsrdf:taIdentRef     oke:Theologian .
 
@@ -7055,7 +7055,7 @@ oke:MartialArt  a        owl:Class ;
         a               nif:Context , nif:RFC5147String , nif:String ;
         nif:beginIndex  "0"^^xsd:nonNegativeInteger ;
         nif:endIndex    "378"^^xsd:nonNegativeInteger ;
-        nif:isString    "AmigaOne is a series of computers intended to run AmigaOS 4 developed by Hyperion Entertainment. Earlier models were produced by Eyetech, and were based on the Teron series of PowerPC POP mainboards. In September 2009, Hyperion Entertainment secured exclusive licence for AmigaOne name and subsequently new AmigaOne computers were released by A-Eon Technology and Acube Systems."@en .
+        nif:isString    "AmigaOne is a computer series intended to run AmigaOS 4 developed by Hyperion Entertainment. Earlier models were produced by Eyetech, and were based on the Teron series of PowerPC POP mainboards. In September 2009, Hyperion Entertainment secured exclusive licence for AmigaOne name and subsequently new AmigaOne computers were released by A-Eon Technology and Acube Systems."@en .
 
 <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-46#char=13,24>
         a                     nif:RFC5147String , nif:String ;
@@ -7244,11 +7244,11 @@ oke:DecorativeMolding
         nif:endIndex    "60"^^xsd:nonNegativeInteger ;
         nif:isString    "Hatshepsut was a pharaoh of the Eighteenth dynasty of Egypt."@en .
 
-<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-148#char=34,53>
+<http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-148#char=41,60>
         a                     nif:RFC5147String , nif:String ;
         nif:anchorOf          "photography process"@en ;
-        nif:beginIndex        "34"^^xsd:nonNegativeInteger ;
-        nif:endIndex          "53"^^xsd:nonNegativeInteger ;
+        nif:beginIndex        "41"^^xsd:nonNegativeInteger ;
+        nif:endIndex          "60"^^xsd:nonNegativeInteger ;
         nif:referenceContext  <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-148#char=0,256> ;
         itsrdf:taIdentRef     oke:PhotographyProcess .
 
@@ -7687,7 +7687,7 @@ oke:Vocalist  a          owl:Class ;
         a               nif:Context , nif:RFC5147String , nif:String ;
         nif:beginIndex  "0"^^xsd:nonNegativeInteger ;
         nif:endIndex    "220"^^xsd:nonNegativeInteger ;
-        nif:isString    "Democracy is \"a system of government in which all the people of a state or polity ... are involved in making decisions about its affairs, typically by voting to elect representatives to a parliament or similar assembly.\""@en .
+        nif:isString    "Democracy is \"a government system in which all the people of a state or polity ... are involved in making decisions about its affairs, typically by voting to elect representatives to a parliament or similar assembly.\""@en .
 
 <http://www.ontologydesignpatterns.org/data/oke-challenge/task-2/sentence-36#char=0,10>
         a                     nif:RFC5147String , nif:String ;

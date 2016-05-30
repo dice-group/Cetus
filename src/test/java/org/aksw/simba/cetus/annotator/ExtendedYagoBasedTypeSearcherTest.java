@@ -47,8 +47,13 @@ public class ExtendedYagoBasedTypeSearcherTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExtendedYagoBasedTypeSearcherTest.class);
 
-    private static final String DOLCE_NAMESPACE1 = "http://www.ontologydesignpatterns.org/ont/";
-    private static final String DOLCE_NAMESPACE2 = "http://ontologydesignpatterns.org/ont/";
+    private static final String DOLCE_NAMESPACE = "http://www.ontologydesignpatterns.org/ont/";
+    private static final String WRONG_NAMESPACE1 = "http://ontologydesignpatterns.org/ont/";
+    private static final String WRONG_NAMESPACE2 = "http://www.ontologydesignpatterns.org/ont/wikipedia/";
+    private static final String WRONG_NAMESPACE3 = "http://ontologydesignpatterns.org/ont/wikipedia/";
+
+    private static final String BLACKLISTED_LOCATION_URI = "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Location";
+    private static final String CORRECT_LOCATION_URI = "http://www.ontologydesignpatterns.org/ont/d0.owl#Location";
 
     @Parameters
     public static Collection<Object[]> data() {
@@ -78,11 +83,12 @@ public class ExtendedYagoBasedTypeSearcherTest {
 
     @Test
     public void test() {
+        LOGGER.info("Starting test for \"" + nifDocument.getDocumentURI() + "\".");
         TypedNamedEntity tne = SEARCHER.getAllTypes(nifDocument, namedEntity, surfaceForms);
         // boolean successful = true;
         StringBuilder errorMsg = new StringBuilder();
         for (String type : tne.getTypes()) {
-            if (type.startsWith(DOLCE_NAMESPACE1) || type.startsWith(DOLCE_NAMESPACE2)) {
+            if (type.startsWith(DOLCE_NAMESPACE) || type.startsWith(WRONG_NAMESPACE1)) {
                 if (expectedTypes.contains(type)) {
                     expectedTypes.remove(type);
                 } else {
@@ -121,11 +127,21 @@ public class ExtendedYagoBasedTypeSearcherTest {
         for (TypedNamedEntity tne : namedEntities) {
             if (filter.isMarkingGood(tne)) {
                 for (String type : tne.getTypes()) {
-                    if (type.startsWith(DOLCE_NAMESPACE1) || type.startsWith(DOLCE_NAMESPACE2)) {
+                    if (type.startsWith(WRONG_NAMESPACE2)) {
+                        types.add(DOLCE_NAMESPACE + type.substring(WRONG_NAMESPACE2.length()));
+                    } else if (type.startsWith(WRONG_NAMESPACE3)) {
+                        types.add(DOLCE_NAMESPACE + type.substring(WRONG_NAMESPACE3.length()));
+                    } else if (type.startsWith(WRONG_NAMESPACE1)) {
+                        types.add(DOLCE_NAMESPACE + type.substring(WRONG_NAMESPACE1.length()));
+                    } else if (type.startsWith(DOLCE_NAMESPACE)) {
                         types.add(type);
                     }
                 }
             }
+        }
+        if (types.contains(BLACKLISTED_LOCATION_URI)) {
+            types.remove(BLACKLISTED_LOCATION_URI);
+            types.add(CORRECT_LOCATION_URI);
         }
         if (types.size() == 0) {
             throw new IllegalStateException("Couldn't find an expected type in document " + document.getDocumentURI());
