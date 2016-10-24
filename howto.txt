@@ -1,0 +1,16 @@
+## build the image
+sudo docker build -t cetus-demo .
+
+## run the image
+sudo docker run -d --restart=always --name cetus-demo -p 6666:8080 cetus-demo
+
+## debug the image
+sudo docker exec -it cetus-demo /bin/bash
+
+
+
+
+
+
+
+
